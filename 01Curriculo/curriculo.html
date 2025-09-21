@@ -3,34 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diego Téllez Aguilar</title>
+    <title>CV de Diego Téllez Aguilar</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class= "container-main">
-        <div>
-            class= "container-nav"
-                <<header>
-                    <<nav>
-                        Aqui va un menú
-                    </nav>>
-                </header>>
-        </div>>
+        <div class="container-main">
+            <header class="header">
+                <img src="img/FotoRostro.jpg" alt="Foto de Diego Téllez Aguilar" class="foto-perfil">
+                <div class="info-header">
+                    <h1>Diego Téllez Aguilar</h1>
+                    <p>Estudiante de Técnico en Programación | IPN</p>
+                    <nav>
+                        <a href="#sobre-mi">Sobre mí</a>
+                        <a href="#historial-laboral">Experiencia</a>
+                        <a href="#formacion">Formación</a>
+                        <a href="#contacto">Contacto</a>
+                    </nav>
+                </div>
+            </header>
+        </div>
 
-        <div>
-            class= "container-body"
-                <<header>
-                    <<nav>
-                        Aqui va una sección donde hablo de mí
-                    </nav>>
-                </header>>
-        </div>>
+        <div class="container-body" >
+            <section id="sobre-mi">
+                <h2>Sobre mí</h2>
+                <p>Estudiante de programación con pasión por la tecnología, con gran
+                interés en acceder al mercado laboral para poner obtener experiencia y
+                conocimientos de cualquier ámbito. Soy una persona amable, autodidacta,
+                y comprometida. Desearía encontrar una oportunidad para dar lo mejor de
+                mi intelecto, creatividad y productividad</p>
+            </section>
 
-        <div class = "container-footer">
 
-            publicidad, anuncios, adds </b2>
-    
-        </div>>
 
-    </div>>
+            <section id="historial-laboral">
+                <h2>Historial Laboral</h2>
+
+                <article class="trabajo">
+                    <h3>Ayudante general en Panadería</h3>
+                    <p><strong>Panadería Chabelita</strong> - Estado de México</p>
+                    <p><em>09/2022 - 12/2022</em></p>
+                    <ul>
+                    <li>Preparar panes rápidamente</li>
+                    <li>Cargar cosas pesadas</li>
+                    <li>Atender a clientes</li>
+                    </ul>
+                </article>
+
+                <article class="trabajo">
+                    <h3>Ayudante general de Restaurante</h3>
+                    <p><strong>El compadre Toño</strong> (55 5868 0081) - Estado de México</p>
+                    <p><em>01/2020 - 07/2020</em></p>
+                    <ul>
+                    <li>Destapar y entregar refrescos y cervezas a meseros</li>
+                    <li>Escarchar y servir bebidas rápidamente</li>
+                    <li>Cargar y acomodar mesas y otras cosas pesadas</li>
+                    <li>Hacer inventario de refrescos y cervezas</li>
+                    <li>Atender a clientes</li>
+                    </ul>
+                </article>
+            </section>
+
+
+            <section id="formacion">
+                <h2>Formación</h2>
+                <div class="estudio">
+                    <h3>Técnico en Programación: Sistemas computacionales</h3>
+                    <p><strong>CECyT 9 “Juan de Dios Bátiz”</strong> - Ciudad de México</p>
+                    <p><em>2026 (en curso)</em></p>
+                    <p>Aún estoy cursando mi carrera; voy en quinto grado en una preparatoria del Instituto Politécnico Nacional.</p>
+                </div>
+            </section>
+
+
+
+            <aside>
+                <h2>Habilidades</h2>
+                    <ul>
+                        <li>HTML, CSS, JavaScript y Java</li>
+                        <li>Git/GitHub</li>
+                        <li>Paquetería office</li>
+                        <li>Redes sociales</li>
+                    </ul>
+
+                <h2>Aptitudes</h2>
+                    <ul>
+                        <li>Sólidas destrezas en álgebra y matemáticas generales</li>
+                        <li>Liderazgo para organizar el trabajo en equipo</li>
+                        <li>Buen juicio para la toma de decisiones y resolución de problemas</li>
+                        <li>Facilidad de palabra oral y escrita; elocuencia y argumentación</li>
+                        <li>Familiarizado con la tecnología y software</li>
+                    </ul>
+
+                <h2>Idiomas</h2>
+                    <ul>
+                        <li>Español (nativo)</li>
+                        <li>Inglés (intermedio B1)</li>
+                    </ul>
+
+               <h2 id="contacto">Contacto</h2>
+                    <p>Email: tellez.aguilar.diego@gmail.com</p>
+                    <p>Teléfono: +52 56 2049 6593</p>
+                    <p>Dirección: 54720, Estado de México,
+                                Cuautitlán Izcalli, Fraccionamiento
+                                la Piedad</p>
+                    <p>Fecha de nacimiento: 10/11/2004</p>
+            </aside>
+        </div>
+
+        <div class="regresar">
+            <a href="../index.html">← Volver al menú principal</a>
+        </div>
+
+        <footer class="container-footer">
+            <h2>Conéctate conmigo</h2>
+            <ul>
+                <li><a href="https://linkedin.com/in/alexis" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/DiegoTA04" target="_blank">GitHub</a></li>
+                <li><a href="https://facebook.com/diegota04" target="_blank">Facebook</a></li>
+                <li><a href="https://instagram.com/diegota04" target="_blank">Instagram</a></li>
+            </ul>
+           <p>&copy; <span id="year"></span> Diego Téllez Aguilar</p>
+        </footer>
+
+        <script>
+            document.getElementById("year").textContent = new Date().getFullYear();
+        </script>
+
+    </div>
 </body>
 </html>
