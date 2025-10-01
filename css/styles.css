@@ -1,39 +1,43 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    color: #f4f4f4; 
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background-image: url(../images/fondo.jpg);
+    background-size: cover; 
+    background-position: center;
 }
 
 .menu {
-    background: #fff;
+    background: rgba(0, 0, 0, 0.7); 
     padding: 30px 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
 }
 
 h1 {
-    color: #7c0031;
+    color: #e1b7ff; 
     margin-bottom: 20px;
 }
 
 ol {
     list-style: decimal inside;
+    color: #f0e1ff; 
 }
 
 ol li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 a {
     text-decoration: none;
-    color: #7c0031;
+    color: #ffd700; 
     font-weight: bold;
 }
 
 a:hover {
     text-decoration: underline;
+    color: #e1b7ff; 
 }

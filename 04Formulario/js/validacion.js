@@ -1,84 +1,49 @@
 /*
-    javascript es un lenguaje multiparadigma
-    Acepta la programación funcional, estructurada, orientada a objetos y orientada a eventos    
-    Dentro de javascript no existe el tipado de variables int, string, float etc.
+    JavaScript es un lenguaje multiparadigma
+    Acepta la programación funcional, estructurada, orientada a objetos y orientada a eventos.    
+    Dentro de JavaScript no existe el tipado de variables int, string, float, etc.
     
-    Solo existen 3 tipos de variables, de acuerdo al estandar  ES6
-    VAR, LET Y CONST 
+    Solo existen 3 tipos de variables, de acuerdo al estándar ES6:
+    VAR, LET y CONST
 */
 
-function validar (formulario) {
-    //Validar que el campo no acepte menos de 3 caracteres
-    if (formulario.nombre.value.length < 3 ) {
-        alert("Por favor escribe más de 3 caracteres en el campo nombre");
+function validar(formulario) {
+    // Validar que el campo nombre no acepte menos de 3 caracteres
+    if (formulario.nombre.value.length < 3) {
+        alert("Por favor, escribe más de 3 caracteres en el campo nombre");
         formulario.nombre.focus();
         return false;
     }
-    // Validación letras
-    var checkStr = formulario.nombre.value;
-    var abcOK = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ" + "abcdefghijklmnñopqrstuvwxyz";
-    var allvalido = true;
-    
-    // Comparar cadena de nombre con el resultado de abc
-    for (var i = 0; i < checkStr.length; i++) {
-        var caracteres = checkStr.charAt(i);
-        var letraValida = false;
-        for (var j = 0; j < abcOK.length; j++) {
-            if (caracteres == abcOK.charAt(j)) {
-                letraValida = true;
-                break;
-            }
-        }
-        if (!letraValida) {
-            allvalido = false;
-            break;
-        }
-    }
-    if (allvalido == false) {
-        alert("Ingresar un nombre válido");
+
+    // Validación de que el nombre contenga solo letras (mayúsculas y minúsculas, incluyendo ñ)
+    var nombre = formulario.nombre.value;
+    var regexNombre = /^[a-zA-ZÑñ]+$/;
+
+    if (!regexNombre.test(nombre)) {
+        alert("Ingresa un nombre válido (solo letras)");
         formulario.nombre.focus();
         return false;
     }
-    
-    // Validación solo números
-    var checkStr = formulario.edad.value;
-    var numOK = "1234567890";
-    var allvalido = true;
-    
-    // Comparar cadena de número con el numOK
-    for (var i = 0; i < checkStr.length; i++) {
-        var caracteres = checkStr.charAt(i);
-        var numeroValido = false;
-        for (var j = 0; j < numOK.length; j++) {
-            if (caracteres == numOK.charAt(j)) {
-                numeroValido = true;
-                break;
-            }
-        }
-        if (!numeroValido) {
-            allvalido = false;
-            break;
-        }
-    }
-    if (!allvalido) {
-        alert("Ingrese únicamente números");
+
+    // Validación "solo números" para la edad
+    var edad = formulario.edad.value;
+    var regexEdad = /^[0-9]+$/;
+
+    if (!regexEdad.test(edad)) {
+        alert("Ingrese únicamente números en el campo edad");
         formulario.edad.focus();
         return false;
     }
-    //Validación correo electrónico
+
+    // Validación de correo electrónico
     var correo = formulario.correo.value;
     var regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     if (!regexCorreo.test(correo)) {
-       alert("Ingrese un correo electrónico válido");
-       formulario.correo.focus();
-       return false;
-    //}
-    
-    } 
-    
-    
-    //Validar correo electrónico que acepte formato texto@texto.texto
-    //texto.texto@texto.texto 
-    //texto.texto@texto.texto 
-    
+        alert("Ingrese un correo electrónico válido");
+        formulario.correo.focus();
+        return false;
     }
+
+    return true;
+}
