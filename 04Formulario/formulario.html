@@ -1,62 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejemplo de formularios</title>
-    <script> src="./js/validacion.js"</script>
+    <title>Ejemplo de Formularios</title>
+    <script src="./js/validacion.js"></script>
 </head>
 <body>
-    <p>Todos los formulacons en la web manejan métodos para el evnío de las diferentes peticiones que reliza el usuario. Considerando la arquitectura cliente servidor, el manejo de las petiuciones se hac epor medio 
-        todos los formularios en la web, manejan respues
-
-        <ul>GET: <ul> Este metodo se encarga de enviar la información del formulario por medio de la salida estandar (conocida como URL) del navegador, 
-        esto propicia que puedan existir inyecciones de codigo realizando violaciones a la seguridad del sistema.
-        </ul>  </ul>
-        </li> </p>    
-
-        <ol>POST: <ol> Este metodo se encarga de enviar la informaicón para poder registrar un cambio o un nuevo registro dentro del sistema, enviandola igual por el metodo estandar, 
-            pero mediante un enrutamiento, esto significa que no esvisible para el usuario, los que nos ofreece un mayor grado de seguridad en el manejo de información. 
-        </ol>  </ol>
-        </li> </p>
-
-        <br>
-        <p>En resumen, los métodos son:
-            <li>
-                <ul>GET: Sirve para enviar y realizar operaciones de lectura o consultas</ul>
-                <ul>POST: Sirve para enviar información de un recurso al servidor, con el fin de registrarlo</ul>
-                <ul>Delete: Sirve para eliminar un registro especifico dentro del servidor, obteniendo una respuesta de actualización</ul>
-                <ul>Put: Sirve para almacenar la información de un recurso particular, y conectarse al servicio para realizar la actualización</ul>
-                <ul>Head: Sirve para relizar el código de respuesta de cualquier cabecera http, asociada a algún recurso</ul>
-            </li>
-        </p>
+    <h1>Ejemplo de Formularios Web</h1>
+    <p>
+        Todos los formularios en la web manejan métodos para el envío de las diferentes peticiones que realiza el usuario. 
+        Considerando la arquitectura cliente-servidor, el manejo de las peticiones se realiza mediante el envío de información
+        desde el cliente (usuario) al servidor, y las respuestas del servidor a través de métodos como GET, POST, entre otros.
     </p>
 
+    <h2>Métodos de envío de formularios</h2>
+    
+    <ul>
+        <li><strong>GET:</strong> Este método se encarga de enviar la información del formulario por medio de la URL del navegador, lo que significa que los datos son visibles para el usuario. Esto puede generar riesgos de seguridad, como inyecciones de código (SQL injection).
+        </li>
 
-    <div class="container-form"></div>
-        <form method="post" id="formulario" name="formulario" onsubmit="return validar(this)" action="" >
+        <li><strong>POST:</strong> Este método se utiliza para enviar la información de manera más segura. Los datos se envían en el cuerpo de la solicitud, lo que los hace invisibles para el usuario. Es ideal para registrar cambios o nuevos registros dentro del sistema, ofreciendo un mayor grado de seguridad.
+        </li>
+    </ul>
 
-            <br>
-            <label for="">Nombre</label>
-            <br>
-            <input type="text" id="nombre" name="nombre" placeholder="Ingresa aquí tu nombre">
+    <h3>Resumen de métodos de formularios:</h3>
+    <ul>
+        <li><strong>GET:</strong> Sirve para enviar y realizar operaciones de lectura o consultas.</li>
+        <li><strong>POST:</strong> Sirve para enviar información de un recurso al servidor con el fin de registrarlo.</li>
+        <li><strong>DELETE:</strong> Sirve para eliminar un registro específico dentro del servidor, obteniendo una respuesta de actualización.</li>
+        <li><strong>PUT:</strong> Sirve para almacenar o actualizar la información de un recurso específico en el servidor.</li>
+        <li><strong>HEAD:</strong> Sirve para obtener solo las cabeceras HTTP de una solicitud, sin el cuerpo del mensaje.</li>
+    </ul>
 
-            <br>
-            <label for="">Edad</label>
-            <br>
-            <input type="number" id="edad" name="edad" placeholder="Ingresa aquí tu edad">
+    <h2>Formulario de Registro</h2>
 
-            <br>
-            <label for="">Correo</label>
-            <br>
-            <input type="email" id="correo" name="correo" placeholder="Ingresa aquí tu correo">
-            <br>
+    <form method="POST" id="formulario" name="formulario" onsubmit="return validar(this)" action="">
+        <br>
+        <label for="nombre">Nombre:</label>
+        <br>
+        <input type="text" id="nombre" name="nombre" placeholder="Ingresa aquí tu nombre" required>
+        <br>
 
-            <input type="submit" name="enviar" value="Enviar registro">
-            <br>
-            <input type="reset" name="borrar" value="Borrar datos">
+        <label for="edad">Edad:</label>
+        <br>
+        <input type="number" id="edad" name="edad" placeholder="Ingresa aquí tu edad" required>
+        <br>
 
-        </form>
+        <label for="correo">Correo:</label>
+        <br>
+        <input type="email" id="correo" name="correo" placeholder="Ingresa aquí tu correo" required>
+        <br>
+
+        <input type="submit" name="enviar" value="Enviar Registro">
+        <br>
+        <input type="reset" name="borrar" value="Borrar Datos">
+    </form>
 
 </body>
 </html>

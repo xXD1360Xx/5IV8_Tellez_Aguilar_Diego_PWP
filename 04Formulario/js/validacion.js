@@ -7,67 +7,78 @@
     VAR, LET Y CONST 
 */
 
-
-function validar(formulario) {
-    /* quiero validar que el campo nombre acepte más de 3 caracteres */
-    if (formulario.nombre.value.lenght < 4) {
-        alert("por favor escribe más de 3 caracteres en el campo de nombre");
+function validar (formulario) {
+    //Validar que el campo no acepte menos de 3 caracteres
+    if (formulario.nombre.value.length < 3 ) {
+        alert("Por favor escribe más de 3 caracteres en el campo nombre");
         formulario.nombre.focus();
-            return false;
-        
-    } 
-
-    //validacion para unicamente letras
+        return false;
+    }
+    // Validación letras
     var checkStr = formulario.nombre.value;
-    alert(checkStr);
-
-    var abcOk = "QWERTYUIOPASDFGHJKLÑZXCVBNM" + "qwertyuiopasdfghjklñzxcvbnm" + "áéíóú"
-
-    var allValido = true;
-
-    //tenemos que comparar la cadena de nombre vs abcOk
-
-    for (int i = 0; i = checkStr.lenght; i++){
-        var caracteres = checkStr.charAt(1)
-        for (j=0; j=abcOk.length; j++){
-            if (caracteres == abcOk.charAt(j)){
+    var abcOK = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ" + "abcdefghijklmnñopqrstuvwxyz";
+    var allvalido = true;
+    
+    // Comparar cadena de nombre con el resultado de abc
+    for (var i = 0; i < checkStr.length; i++) {
+        var caracteres = checkStr.charAt(i);
+        var letraValida = false;
+        for (var j = 0; j < abcOK.length; j++) {
+            if (caracteres == abcOK.charAt(j)) {
+                letraValida = true;
                 break;
             }
-
-        
         }
-
-        if (j == abcOk.length){
-            allValido = false
+        if (!letraValida) {
+            allvalido = false;
             break;
         }
-    } 
-
-    if(!allValido){
-        alert("Escriba unicamente letras en el campo nombre")
+    }
+    if (allvalido == false) {
+        alert("Ingresar un nombre válido");
         formulario.nombre.focus();
         return false;
-
     }
-
-
-
-
-    function validar(formulario) {
+    
+    // Validación solo números
+    var checkStr = formulario.edad.value;
+    var numOK = "1234567890";
+    var allvalido = true;
+    
+    // Comparar cadena de número con el numOK
+    for (var i = 0; i < checkStr.length; i++) {
+        var caracteres = checkStr.charAt(i);
+        var numeroValido = false;
+        for (var j = 0; j < numOK.length; j++) {
+            if (caracteres == numOK.charAt(j)) {
+                numeroValido = true;
+                break;
+            }
+        }
+        if (!numeroValido) {
+            allvalido = false;
+            break;
+        }
     }
-        
-
-    if(!allValido){
-        alert("Escriba unicamente digitos en el campo edad")
+    if (!allvalido) {
+        alert("Ingrese únicamente números");
         formulario.edad.focus();
         return false;
-
     }
-
-    //vamos a crear una funcion de una expresion regular para validar el correo electronico texto.texto@gmail.com 
-
-    var b = /*{^@/}+{*}/+  */
-
-    var txt = formulario.correo.value;
-    alert("Email " + b.test(txt) ; "" " no ") + "valido");
-}
+    //Validación correo electrónico
+    var correo = formulario.correo.value;
+    var regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!regexCorreo.test(correo)) {
+       alert("Ingrese un correo electrónico válido");
+       formulario.correo.focus();
+       return false;
+    //}
+    
+    } 
+    
+    
+    //Validar correo electrónico que acepte formato texto@texto.texto
+    //texto.texto@texto.texto 
+    //texto.texto@texto.texto 
+    
+    }

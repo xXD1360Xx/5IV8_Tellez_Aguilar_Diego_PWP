@@ -15,9 +15,9 @@ body{
 
 .userlogin{
     background-color: aliceblue;
-    width: 600px;
+    width: 700px;
     height: 40px;
-    border-radius: 10px solid;
+    border-radius: 10px solid rgb(155, 244, 16);
     margin-top: 10%;
     text-align: center;
 }
@@ -38,7 +38,7 @@ body{
 .userid h2{
     font-family: 'Roboto';
     float: left;
-    margin-left: 5px;
+    margin-left: 50px;
     margin-right: 5px;
     padding-left: 5px;
 }
@@ -90,6 +90,7 @@ body{
 }
 
 .button img{
+    float: left;
 }
 
 a{
