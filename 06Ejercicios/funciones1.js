@@ -1,33 +1,39 @@
-function validarn(e){
-    var teclado = (document.all) ? e.keycode : e.which; 
-    if (teclado == 8) return true;
-    var patron = /[0-9.]/;
+function validarNumero(e){
+    var teclado = (document.all) ? e.keyCode : e.which; 
+    if (teclado == 8) return true; // Permitir borrar (backspace)
+    var patron = /[0-9.]/; //Permitir solo números y punto decimal
     var codigo = String.fromCharCode(teclado);
     return patron.test(codigo);
 
 }
 
 //funcion para delimitar
-function interes(){
-    var valor = document.getElementById("cantidad1").value;
+function calcularInteres(){
+    var valor = document.getElementById("cantidadI").value;
 
     var parseo = parseFloat(valor);
 
-    var interes = parseo*(0.085); //limite a dos decimales
+    if (isNaN(paseo)) {
+        alert("Por favor, ingresa un número válido.");
+        return;
+    }
+
+    var interes = parseo*(0.085); 
 
     var total = interes + parseo; 
 
-    document.getElementById("saldoI").value = "$" + total; //limite a dos decimales
+    document.getElementById("saldoI").value = "$" + total.toFixed(2); //limite a dos decimales
 
 }
 
-function borrar(){
-    document.getElementById("saldoI").value = "";
+function borrarCampos() {
     document.getElementById("cantidadI").value = "";
+    document.getElementById("saldoI").value = "";
 }
 
 
-//del ejercicio, tenemos que agregar el campo número de meses y será una inversión de máximo 18 meses
+
+
 
 //en el ejericio dos se deben ingresar 3 ventas, un sueldo bse, y despues calcular el monto total, debe de aparecer cuanto cobra por comisión y la suma total
 
