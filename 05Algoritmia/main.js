@@ -1,3 +1,55 @@
+//Temporizador
+let intervalo;
+let enPausa = false;
+
+function iniciarTemporizador() {
+    const container = document.getElementById("timer-container");
+    const timerDisplay = document.getElementById("timer-value");
+    const nextBtn = document.getElementById("next-btn");
+
+  if (!container || !timerDisplay || !nextBtn) return;
+
+  // 🧩 Lee el tiempo definido en el HTML o usa 30 por defecto
+  let tiempoRestante = parseInt(container.dataset.tiempo) || 30;
+  timerDisplay.textContent = tiempoRestante;
+
+  // actualizar cada segundo
+  intervalo = setInterval(() => {
+    if (!enPausa) {
+      tiempoRestante--;
+      timerDisplay.textContent = tiempoRestante;
+
+      if (tiempoRestante <= 0) {
+        clearInterval(intervalo);
+        nextBtn.click(); // 🔸 simula click en “Siguiente Ejercicio”
+      }
+    }
+  }, 1000);
+}
+
+// Pausar / Reanudar
+document.getElementById("pause-btn").addEventListener("click", () => {
+  enPausa = !enPausa;
+  document.getElementById("pause-btn").textContent = enPausa ? "Reanudar" : "Pausar";
+});
+
+// Lógica del botón “Siguiente Ejercicio”
+document.getElementById("next-btn").addEventListener("click", () => {
+  const actual = window.location.pathname.split("/").pop(); // obtiene solo el nombre del archivo
+
+  if (actual === "Ejercicio1.html") {
+    window.location.href = "Ejercicio2.html";
+  } else if (actual === "Ejercicio2.html") {
+    window.location.href = "Ejercicio3.html";
+  } else {
+    alert("¡Todos los ejercicios completados!");
+  }
+});
+
+// Inicia automáticamente al cargar la página
+window.addEventListener("load", iniciarTemporizador);
+
+
 //Ejercicio 1
 function invertirPalabra() {
     const input = document.getElementById("e1-input").value;

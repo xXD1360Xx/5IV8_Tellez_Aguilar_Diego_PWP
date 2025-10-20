@@ -9,7 +9,19 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="page-container">
+        <div id="timer-container" class="timer-container" data-tiempo="44">
+            <div class="timer-info">
+                <span id="timer-label">Temporizador:</span>
+                <span id="timer-value">44</span>
+            </div>
+
+            <div class="timer-buttons">
+                <button id="pause-btn" class="ejercicio-btn">Pausar</button>
+                <button id="next-btn" class="ejercicio-btn">Siguiente Ejercicio</button>
+            </div>
+        </div>
+
         <div class="ejercicio-container">
             <h2 class="ejercicio-title">Ejercicio 2 - Producto escalar mínimo</h2>   
 
@@ -33,11 +45,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>x1</td><td><input type="number" id="p2-x1"></td></tr>
-                            <tr><td>x2</td><td><input type="number" id="p2-x2"></td></tr>
-                            <tr><td>x3</td><td><input type="number" id="p2-x3"></td></tr>
-                            <tr><td>x4</td><td><input type="number" id="p2-x4"></td></tr>
-                            <tr><td>x5</td><td><input type="number" id="p2-x5"></td></tr>
+                            <tr><td>x1</td><td><input type="number" id="e2-x1"></td></tr>
+                            <tr><td>x2</td><td><input type="number" id="e2-x2"></td></tr>
+                            <tr><td>x3</td><td><input type="number" id="e2-x3"></td></tr>
+                            <tr><td>x4</td><td><input type="number" id="e2-x4"></td></tr>
+                            <tr><td>x5</td><td><input type="number" id="e2-x5"></td></tr>
                         </tbody>
                     </table>
 
@@ -49,20 +61,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>y1</td><td><input type="number" id="p2-y1"></td></tr>
-                            <tr><td>y2</td><td><input type="number" id="p2-y2"></td></tr>
-                            <tr><td>y3</td><td><input type="number" id="p2-y3"></td></tr>
-                            <tr><td>y4</td><td><input type="number" id="p2-y4"></td></tr>
-                            <tr><td>y5</td><td><input type="number" id="p2-y5"></td></tr>
+                            <tr><td>y1</td><td><input type="number" id="e2-y1"></td></tr>
+                            <tr><td>y2</td><td><input type="number" id="e2-y2"></td></tr>
+                            <tr><td>y3</td><td><input type="number" id="e2-y3"></td></tr>
+                            <tr><td>y4</td><td><input type="number" id="e2-y4"></td></tr>
+                            <tr><td>y5</td><td><input type="number" id="e2-y5"></td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <button type="button" class="ejercicio-button" style="margin-top: 1rem;" onclick="minimoProductoEscalar()">Calcular vector</button>
-                <pre class="ejercicio-output" id="e2-output">Esperando datos...</pre>
+                <button type="button" class="ejercicio-btn" id="e2-calcular-btn" style="margin-top: 1rem;" onclick="minimoProductoEscalar()">Calcular vector</button>
+                <pre id="e2-output">Esperando datos...</pre>
             </div>
         </div>
     </div>
-    <script src="main.js"></script>
+    <script src="../main.js"></script>
 </body>
 </html>

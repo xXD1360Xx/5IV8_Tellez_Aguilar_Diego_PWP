@@ -9,7 +9,19 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="page-container">
+        <div id="timer-container" class="timer-container" data-tiempo="33">
+            <div class="timer-info">
+                <span id="timer-label">Temporizador:</span>
+                <span id="timer-value">33</span>
+            </div>
+
+            <div class="timer-buttons">
+                <button id="pause-btn" class="ejercicio-btn">Pausar</button>
+                <button id="next-btn" class="ejercicio-btn">Siguiente Ejercicio</button>
+            </div>
+        </div>
+
         <div class="ejercicio-container">
             <h2 class="ejercicio-title">Ejercicio 3 - Palabra con más caracteres únicos</h2>
 
@@ -30,6 +42,6 @@
             </div>
         </div>
     </div>
-    <script src="main.js"></script>
+    <script src="../main.js"></script>
 </body>
 </html>
