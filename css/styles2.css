@@ -5,16 +5,15 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url(../images/fondo.jpg);
-    background-size: cover; 
-    background-position: center;
+    background: radial-gradient(circle at 30% 30%, #3b0066, #14001a, #000000);
+    background-attachment: fixed;
 }
 
 .menu-container {
     background: rgba(0, 0, 0, 0.7); 
     padding: 30px 40px;
     border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 h1 {

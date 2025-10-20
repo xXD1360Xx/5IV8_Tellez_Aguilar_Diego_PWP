@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="ejercicio-container">
+            <h2 class="ejercicio-tittle">Ejercicio 4 - Cálculo de Inversiones</h2>
+
+            
+            <h2>Formulario para cálculo de inversiones</h2>
+            <p>Banco Kawaii con un incremento del 8.05% anual</p>
+
+            <form name="formulario" action="#" method="post">
+                <table>
+
+                    <tr>
+                    <td>
+                        ¿A cuántos meses deseas invertir? 
+                        <br>
+                        <small>Considera que la tasa de interés anual es de 8.05%</small>
+                    </td>
+                    <td>
+                        <select name="mesesI" id="mesesI" required>
+                        <option value="">-- Selecciona un plazo --</option>
+                        <option value="3">3 meses</option>
+                        <option value="6">6 meses</option>
+                        <option value="12">12 meses</option>
+                        <option value="18">18 meses</option>
+                        </select>
+                    </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Introduce la cantidad que deseas invertir por 1 año:</td>
+                        <td>
+                            <input type="text" name="cantidadI" id="cantidadI" onkeypress="return validarNumero(event)">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="button" value="Calcular Interés" onclick="calcularInteres()">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Su saldo total con el interés es de:</td>
+                        <td>
+                            <input type="text" name="sueldoI" id="saldoI" readonly>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="button" value="Borrar Datos" name="borrar" onclick="borrarCampos()">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+    </div>
+  
+        
+
+
+    <script src="funciones1.js"></script>
+
+</body>
+</html>

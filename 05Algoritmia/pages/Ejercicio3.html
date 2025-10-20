@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="ejercicio-container">
+            <h2 class="ejercicio-title">Ejercicio 3 - Palabra con más caracteres únicos</h2>
+
+            <h3 class="ejercicio-description">
+                Dada una lista de palabras, encontrar la palabra que más número de caracteres únicos tenga.
+                <br>
+                Por ejemplo: CASA = 3 (C, A, S) o PERRO = 4 (P, E, R, O)
+                <br>
+                Considera solamente el alfabeto A-Z en mayúsculas.
+                <br>
+                Las palabras deben estar separadas por una coma, no se aceptan espacios.
+            </h3>
+
+            <div class="ejercicio-content">      
+                <input type="text" class="ejercicio-input" placeholder="Ingresa las palabras separadas por una coma" id="p3-input">
+                <button type="button" class="ejercicio-button" style="margin-top: 1rem;" onclick="palabraMasUnica()">Calcular palabras</button>
+                <pre class="ejercicio-output" id="e3-output">Esperando datos...</pre>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
