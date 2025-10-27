@@ -1,80 +1,83 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 2</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 2</title>
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
 
-<body>
-    <div class="page-container">
-        <div id="timer-container" class="timer-container" data-tiempo="44">
-            <div class="timer-info">
-                <span id="timer-label">Temporizador:</span>
-                <span id="timer-value">44</span>
-            </div>
+    <body id="menu1">
+        <div class="contenedor-pagina">
 
-            <div class="timer-buttons">
-                <button id="pause-btn" class="ejercicio-btn">Pausar</button>
-                <button id="next-btn" class="ejercicio-btn">Siguiente Ejercicio</button>
-            </div>
-        </div>
-
-        <div class="ejercicio-container">
-            <h2 class="ejercicio-title">Ejercicio 2 - Producto escalar mínimo</h2>   
-
-            <h3 class="ejercicio-description" >
-                Dados dos vectores <em>v1=(x1, x2, x3, x4... xN)</em> y <em>v2=(y1, y2, y3, y4... yN)</em>,
-                y teniendo permitido permutar el orden de los elementos del dicho vector, encontrar el 
-                mínimo producto escalar entre ambos vectores.
-                <br>
-                El producto escalar se forma de la siguiente manera: 
-                <em>x1*y1 + x2*y2 + x3*y3 + x4*y4 + ... + xN*yN</em>
-            </h3>
-
-            <div class="ejercicio-content">      
-                <div class="tablas" style="width: 100%; display:flex; justify-content: center;">
-
-                    <table class="ejercicio-table" style="width: 45%">
-                        <thead>
-                            <tr>
-                                <th><em>X</em></th>
-                                <th>#</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>x1</td><td><input type="number" id="e2-x1"></td></tr>
-                            <tr><td>x2</td><td><input type="number" id="e2-x2"></td></tr>
-                            <tr><td>x3</td><td><input type="number" id="e2-x3"></td></tr>
-                            <tr><td>x4</td><td><input type="number" id="e2-x4"></td></tr>
-                            <tr><td>x5</td><td><input type="number" id="e2-x5"></td></tr>
-                        </tbody>
-                    </table>
-
-                    <table class="ejercicio-table" style="width: 45%">
-                        <thead>
-                            <tr>
-                                <th><em>Y</em></th>
-                                <th>#</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>y1</td><td><input type="number" id="e2-y1"></td></tr>
-                            <tr><td>y2</td><td><input type="number" id="e2-y2"></td></tr>
-                            <tr><td>y3</td><td><input type="number" id="e2-y3"></td></tr>
-                            <tr><td>y4</td><td><input type="number" id="e2-y4"></td></tr>
-                            <tr><td>y5</td><td><input type="number" id="e2-y5"></td></tr>
-                        </tbody>
-                    </table>
+            <div id="contenedor-tiempo" class="contenedor-tiempo" data-tiempo="44">
+                <div class="info-tiempo">
+                    <span id="etiqueta-tiempo">Temporizador:</span>
+                    <span id="valor-tiempo">44</span>
                 </div>
 
-                <button type="button" class="ejercicio-btn" id="e2-calcular-btn" style="margin-top: 1rem;" onclick="minimoProductoEscalar()">Calcular vector</button>
-                <pre id="e2-output">Esperando datos...</pre>
+                <div class="botones-tiempo">
+                    <button id="boton-pausa" class="boton-ejercicio">Pausar</button>
+                    <button id="boton-siguiente" class="boton-ejercicio">Siguiente Ejercicio</button>
+                </div>
             </div>
-        </div>
-    </div>
-    <script src="../main.js"></script>
-</body>
-</html>
+
+            <div class="contenedor-ejercicio">
+                <h2 class="titulo-ejercicio">Ejercicio 2 - Producto escalar mínimo</h2>   
+
+                <h3 class="descripcion-ejercicio">
+                    Dados dos vectores <em>v1=(x1, x2, x3, x4... xN)</em> y <em>v2=(y1, y2, y3, y4... yN)</em>,
+                    y teniendo permitido permutar el orden de los elementos de dichos vectores, encontrar el 
+                    mínimo producto escalar entre ambos vectores.
+                    <br>
+                    El producto escalar se forma de la siguiente manera: 
+                    <em>x1*y1 + x2*y2 + x3*y3 + x4*y4 + ... + xN*yN</em>
+                </h3>
+
+                <div class="contenido-ejercicio">      
+                    <div class="tablas" style="width: 100%; display:flex; justify-content: center;">
+
+                        <table class="tabla-ejercicio" style="width: 45%">
+                            <thead>
+                                <tr>
+                                    <th><em>X</em></th>
+                                    <th>#</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>x1</td><td><input type="number" id="entrada-x1" class="entrada-ejercicio"></td></tr>
+                                <tr><td>x2</td><td><input type="number" id="entrada-x2" class="entrada-ejercicio"></td></tr>
+                                <tr><td>x3</td><td><input type="number" id="entrada-x3" class="entrada-ejercicio"></td></tr>
+                                <tr><td>x4</td><td><input type="number" id="entrada-x4" class="entrada-ejercicio"></td></tr>
+                                <tr><td>x5</td><td><input type="number" id="entrada-x5" class="entrada-ejercicio"></td></tr>
+                            </tbody>
+                        </table>
+
+                        <table class="tabla-ejercicio" style="width: 45%">
+                            <thead>
+                                <tr>
+                                    <th><em>Y</em></th>
+                                    <th>#</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>y1</td><td><input type="number" id="entrada-y1" class="entrada-ejercicio"></td></tr>
+                                <tr><td>y2</td><td><input type="number" id="entrada-y2" class="entrada-ejercicio"></td></tr>
+                                <tr><td>y3</td><td><input type="number" id="entrada-y3" class="entrada-ejercicio"></td></tr>
+                                <tr><td>y4</td><td><input type="number" id="entrada-y4" class="entrada-ejercicio"></td></tr>
+                                <tr><td>y5</td><td><input type="number" id="entrada-y5" class="entrada-ejercicio"></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+        
+                        <button type="button" class="boton-general" style="margin-top: 1rem;" onclick="minimoProductoEscalar()">Calcular producto</button>
+                        <p id="salida-e2" class="salida-ejercicio">Esperando datos...</p>
+                    </div>
+                </div>
+            </div>
+        
+            <script src="../main.js"></script>
+        </body>
+    </html>
+    

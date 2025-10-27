@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 1</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 1</title>
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
 
-<body>
-    <div class="page-container">
-        <div id="timer-container" class="timer-container" data-tiempo="22">
-            <div class="timer-info">
-                <span id="timer-label">Temporizador:</span>
-                <span id="timer-value">22</span>
+    <body id="menu1">
+        <div class="contenedor-pagina">
+            <div id="contenedor-tiempo" class="contenedor-tiempo" data-tiempo="22">
+                <div class="info-tiempo">
+                    <span id="etiqueta-tiempo">Temporizador:</span>
+                    <span id="valor-tiempo">22</span>
+                </div>
+
+                <div class="botones-tiempo">
+                    <button id="boton-pausa" class="boton-ejercicio">Pausar</button>
+                    <button id="boton-siguiente" class="boton-ejercicio">Siguiente Ejercicio</button>
+                </div>
             </div>
 
-            <div class="timer-buttons">
-                <button id="pause-btn" class="ejercicio-btn">Pausar</button>
-                <button id="next-btn" class="ejercicio-btn">Siguiente Ejercicio</button>
-            </div>
-        </div>
-
-        <div class="ejercicio-container" id="ejercicio1">
-            <h2 class="ejercicio-title">Ejercicio 1 - Palabra Invertida</h2>
+            <div class="contenedor-ejercicio" id="ejercicio1">
+                <h2 class="titulo-ejercicio">Ejercicio 1 - Palabra Invertida</h2>
+                
+                <h3 class="descripcion-ejercicio">
+                    Deberán crear un formulario en el cual se debe leer una palabra y mostrar la palabra invertida.
+                </h3>
             
-            <h3 class="ejercicio-description">
-                Deberán de crear un formulario en el cual se debe de leer una palabra y se debe de mostrar la palabra invertida.
-            </h3>
-          
-            <label for="palabra">Palabra:</label>
-            <input type="text" id="e1-input" required>
-            <br>
-            <button type="button" id="e1-btn" onclick="invertirPalabra()">Invertir</button>
+                <label for="entrada-e1">Palabra:</label>
+                <input type="text" id="entrada-e1" class="entrada-ejercicio" required>
+                <br>
+                <button type="button" id="boton-e1" class="boton-ejercicio" onclick="invertirPalabra()">Invertir</button>
 
-            <p id="e1-output">Esperando palabra para invertirla...</p>
+                <p id="salida-e1" class="salida-ejercicio">Esperando palabra para invertirla...</p>
+            </div>
         </div>
-    </div>
 
-    <script src="../main.js"></script>
-</body>
+        <script src="../main.js"></script>
+    </body>
 </html>

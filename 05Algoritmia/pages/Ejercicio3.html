@@ -8,37 +8,37 @@
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
-<body>
-    <div class="page-container">
-        <div id="timer-container" class="timer-container" data-tiempo="33">
-            <div class="timer-info">
-                <span id="timer-label">Temporizador:</span>
-                <span id="timer-value">33</span>
+<body id="menu1">
+    <div class="contenedor-pagina">
+        <div id="contenedor-tiempo" class="contenedor-tiempo" data-tiempo="33">
+            <div class="info-tiempo">
+                <span id="etiqueta-tiempo">Temporizador:</span>
+                <span id="valor-tiempo">33</span>
             </div>
 
-            <div class="timer-buttons">
-                <button id="pause-btn" class="ejercicio-btn">Pausar</button>
-                <button id="next-btn" class="ejercicio-btn">Siguiente Ejercicio</button>
+            <div class="botones-tiempo">
+                <button id="boton-pausa" class="boton-ejercicio">Pausar</button>
+                <button id="boton-siguiente" class="boton-ejercicio">Siguiente Menú</button>
             </div>
         </div>
 
-        <div class="ejercicio-container">
-            <h2 class="ejercicio-title">Ejercicio 3 - Palabra con más caracteres únicos</h2>
+        <div class="contenedor-ejercicio">
+            <h2 class="titulo-ejercicio">Ejercicio 3 - Palabra con más caracteres únicos</h2>
 
-            <h3 class="ejercicio-description">
-                Dada una lista de palabras, encontrar la palabra que más número de caracteres únicos tenga.
+            <h3 class="descripcion-ejercicio">
+                Dada una lista de palabras, encuentra la palabra que tenga el mayor número de caracteres únicos.
                 <br>
                 Por ejemplo: CASA = 3 (C, A, S) o PERRO = 4 (P, E, R, O)
                 <br>
                 Considera solamente el alfabeto A-Z en mayúsculas.
                 <br>
-                Las palabras deben estar separadas por una coma, no se aceptan espacios.
+                Las palabras deben estar separadas por una coma, sin espacios.
             </h3>
 
-            <div class="ejercicio-content">      
-                <input type="text" class="ejercicio-input" placeholder="Ingresa las palabras separadas por una coma" id="p3-input">
-                <button type="button" class="ejercicio-button" style="margin-top: 1rem;" onclick="palabraMasUnica()">Calcular palabras</button>
-                <pre class="ejercicio-output" id="e3-output">Esperando datos...</pre>
+            <div class="contenido-ejercicio">      
+                <input type="text" class="entrada-ejercicio" placeholder="Ingresa las palabras separadas por una coma" id="entrada-e3">
+                <button type="button" class="boton-general" style="margin-top: 1rem;" onclick="palabraMasUnica()">Calcular palabras</button>
+                <pre class="salida-ejercicio" id="salida-e3">Esperando datos...</pre>
             </div>
         </div>
     </div>
