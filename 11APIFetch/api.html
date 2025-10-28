@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo pokedexx</title>
+
+
+    <script src="http found awseome"></script>
+</head>
+<body>
+    <section class="half">
+        <div class="d-flex center flex">
+            <input type="text" id="pokemonName"
+            class="lcd-input" placehorder="Ingrese el nombre del pokemon" value="0">
+            <button id="bEnSearch" class="btn" > </button>
+
+            <div class="column-elements">
+                <button class="btn" id="btnUp"> <i class="fa-solid fa-caret up" ></i></button>
+
+                <button class="btn" id="btnDown"> <i class="fa-solid fa-caret up" ></i></button>
+            </div>
+
+            <div id="pokedDisplay-container" class="d-flex center-flex pokedDisplay-container" >
+                <div class="pokedDisplay" src="./img/pokeball.png" alt="Pokedisplay">
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </section>
+
+    <section id="pokemonData" class="half">
+        <h3 id="pokemonNameResult" class="center-flex"></h3>
+        <div class="center-flex">
+            <div>Tipo de pokemon</div>
+            <div id="PokemonTypes" class="pokemon-types-container"></div>
+        </div>
+
+        <table class="pokemon-start.table">
+            <thead>
+                <tr>
+                    <td colspan="6"> Estadisticas base</td>
+                </tr>
+
+                <tr>
+                    <td>HP</td>
+                    <td>Attack</td>
+                    <td>Defense</td>
+                    <td>Special attack</td>
+                    <td>Special Defense</td>
+                    <td>Speed</td>
+                </tr>
+            </thead>
+
+            <tbody id="pokemonStats">
+                <tr class="pokemon-stat" id="pokemonStatVida" >0</tr>
+                <tr class="pokemon-stat" id="pokemonStatAttack" >0</tr>
+                <tr class="pokemon-stat" id="pokemonStatDefense" >0</tr>
+                <tr class="pokemon-stat" id="pokemonStatSpecialAttack" >0</tr>
+                <tr class="pokemon-stat" id="pokemonStatSpecialDefense" >0</tr>
+                <tr class="pokemon-stat" id="pokemonStatSpeed" >0</tr>
+
+
+            </tbody>
+
+
+        </table>
+
+        <div class="row-center-flex">
+            <div class="row-element">
+                Movimientos:
+                <ul id="pokemonMoves"></ul>
+            </div>
+
+            <div class="row-element">
+                Habilidades:
+                <ul id="pokemonAbilities"></ul>
+            </div>
+
+
+
+            
+        </div>
+    </section>
+    
+</body>
+</html>
