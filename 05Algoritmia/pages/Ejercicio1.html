@@ -1,27 +1,32 @@
-<!DOCTYPE html>
+0<!DOCTYPE html>
 <html lang="es">
 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ejercicio 1</title>
-        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../../css/stylesEjercicios.css">
     </head>
 
-    <body id="menu1">
+    <body id="practica05">
         <div class="contenedor-pagina">
-            <div id="contenedor-tiempo" class="contenedor-tiempo" data-tiempo="22">
-                <div class="info-tiempo">
+            <div class="contenedor-superior">
+
+                <button id="boton-regresar" class="boton-ejercicio">Regresar</button>
+                
+                <div id="contenedor-tiempo" class="contenedor-tiempo" data-tiempo="30">
+                    <div class="info-tiempo">
                     <span id="etiqueta-tiempo">Temporizador:</span>
-                    <span id="valor-tiempo">22</span>
+                    <span id="valor-tiempo">30</span>
                 </div>
 
                 <div class="botones-tiempo">
                     <button id="boton-pausa" class="boton-ejercicio">Pausar</button>
-                    <button id="boton-siguiente" class="boton-ejercicio">Siguiente Ejercicio</button>
+                    <button id="boton-siguiente" class="boton-ejercicio">Siguiente ejercicio</button>
                 </div>
-            </div>
+        </div>
 
+ </div>
             <div class="contenedor-ejercicio" id="ejercicio1">
                 <h2 class="titulo-ejercicio">Ejercicio 1 - Palabra Invertida</h2>
                 
@@ -32,12 +37,14 @@
                 <label for="entrada-e1">Palabra:</label>
                 <input type="text" id="entrada-e1" class="entrada-ejercicio" required>
                 <br>
-                <button type="button" id="boton-e1" class="boton-ejercicio" onclick="invertirPalabra()">Invertir</button>
+                <button type="button" id="boton-e1" class="boton-ejercicio" onclick="invertirPalabra()" style="margin-top: 20px;" >Invertir palabra</button>
 
                 <p id="salida-e1" class="salida-ejercicio">Esperando palabra para invertirla...</p>
             </div>
         </div>
 
+        <script src="../../js/mainEjercicios.js"></script>
         <script src="../main.js"></script>
+        
     </body>
 </html>

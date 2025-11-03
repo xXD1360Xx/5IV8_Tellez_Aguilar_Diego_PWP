@@ -1,121 +1,108 @@
-//Temporizador
-let intervalo;
-let enPausa = false;
+const botonRegresar = document.getElementById("boton-regresar");
+const botonSiguiente = document.getElementById("boton-siguiente");
 
-function iniciarTemporizador() {
-    const container = document.getElementById("timer-container");
-    const timerDisplay = document.getElementById("timer-value");
-    const nextBtn = document.getElementById("next-btn");
-
-  if (!container || !timerDisplay || !nextBtn) return;
-
-  // 🧩 Lee el tiempo definido en el HTML o usa 30 por defecto
-  let tiempoRestante = parseInt(container.dataset.tiempo) || 30;
-  timerDisplay.textContent = tiempoRestante;
-
-  // actualizar cada segundo
-  intervalo = setInterval(() => {
-    if (!enPausa) {
-      tiempoRestante--;
-      timerDisplay.textContent = tiempoRestante;
-
-      if (tiempoRestante <= 0) {
-        clearInterval(intervalo);
-        nextBtn.click(); // 🔸 simula click en “Siguiente Ejercicio”
-      }
-    }
-  }, 1000);
-}
-
-// Pausar / Reanudar
-document.getElementById("pause-btn").addEventListener("click", () => {
-  enPausa = !enPausa;
-  document.getElementById("pause-btn").textContent = enPausa ? "Reanudar" : "Pausar";
-});
-
-// Lógica del botón “Siguiente Ejercicio”
-document.getElementById("next-btn").addEventListener("click", () => {
-  const actual = window.location.pathname.split("/").pop(); // obtiene solo el nombre del archivo
+botonRegresar.addEventListener("click", () => {
+  const actual = window.location.pathname.split("/").pop();
 
   if (actual === "Ejercicio1.html") {
-    window.location.href = "Ejercicio2.html";
-  } else if (actual === "Ejercicio2.html") {
-    window.location.href = "Ejercicio3.html";
-  } else {
-    alert("¡Todos los ejercicios completados!");
-  }
+      window.location.href = "../index.html";
+    } else if (actual === "Ejercicio2.html") {
+      window.location.href = "Ejercicio1.html";
+    } else if (actual === "Ejercicio3.html") {
+      window.location.href = "Ejercicio2.html";
+    }  
+});
+  
+
+botonSiguiente.addEventListener("click", () => {
+  const actual = window.location.pathname.split("/").pop();
+
+    if (actual === "Ejercicio1.html") {
+      window.location.href = "Ejercicio2.html";
+    } else if (actual === "Ejercicio2.html") {
+      window.location.href = "Ejercicio3.html";
+    } else {
+      alert("¡Todos los ejercicios completados! \nPasando a la siguiente práctica");
+      window.location.href = "../../06Ejercicios/pages/Ejercicio4.html"
+    }
 });
 
-// Inicia automáticamente al cargar la página
-window.addEventListener("load", iniciarTemporizador);
 
 
-//Ejercicio 1
+// Ejercicio 1 
 function invertirPalabra() {
-    const input = document.getElementById("e1-input").value;
-    const output = document.getElementById("e1-output");
+  const input = document.getElementById("entrada-e1").value;
+  const output = document.getElementById("salida-e1");
 
-    if (input === "") {
-        output.textContent = "Por favor, ingresa una palabra.";
-        return;
-    }
+  if (input === "") {
+    output.textContent = "Por favor, ingresa una palabra.";
+    return;
+  }
 
-    const invertida = input.split("").reverse().join("");
-    output.textContent = `Resultado: ${invertida}`;
+  const invertida = input.split("").reverse().join("");
+  output.textContent = `Resultado: ${invertida}`;
 }
 
 
-
-//Ejercicio 2
+ 
+// Ejercicio 2
 function minimoProductoEscalar() {
-    const x = [];
-    const y = [];
+  const x = [];
+  const y = [];
 
-    for (let i = 1; i <= 5; i++) {
-        const xi = parseFloat(document.getElementById(`e2-x${i}`).value);
-        const yi = parseFloat(document.getElementById(`e2-y${i}`).value);
-        if (isNaN(xi) || isNaN(yi)) {
-            document.getElementById("e2-output").textContent = "Por favor, llena todos los campos numéricos.";
-            return;
-        }
-        x.push(xi);
-        y.push(yi);
+  for (let i = 1; i <= 5; i++) {
+    const inputX = document.getElementById(`entrada-x${i}`);
+    const inputY = document.getElementById(`entrada-y${i}`);
+
+    const xi = parseFloat(inputX.value);
+    const yi = parseFloat(inputY.value);
+
+    if (isNaN(xi) || isNaN(yi)) {
+      document.getElementById("salida-e2").textContent =
+        "Por favor, completa todos los campos numéricos.";
+      return;
     }
 
-    // Ordena x ascendente y y descendente para obtener el mínimo producto escalar
-    x.sort((a, b) => a - b);
-    y.sort((a, b) => b - a);
+    x.push(xi);
+    y.push(yi);
+  }
 
-    let producto = 0;
-    for (let i = 0; i < x.length; i++) {
-        producto += x[i] * y[i];
-    }
+  x.sort((a, b) => a - b);
+  y.sort((a, b) => b - a);
 
-    document.getElementById("e2-output").textContent = `Mínimo producto escalar: ${producto}`;
+  let producto = 0;
+  for (let i = 0; i < x.length; i++) {
+    producto += x[i] * y[i];
+  }
+
+  document.getElementById("salida-e2").textContent =
+    `Mínimo producto escalar: ${producto}`;
 }
 
-//Ejercicio 3
+
+
+// Ejercicio 3
 function palabraMasUnica() {
-    const input = document.getElementById("e3-input").value.trim();
-    const output = document.getElementById("e3-output");
+  const input = document.getElementById("entrada-e3").value.trim();
+  const output = document.getElementById("salida-e3");
 
-    if (input === "") {
-        output.textContent = "Por favor, ingresa al menos una palabra.";
-        return;
+  if (input === "") {
+    output.textContent = "Por favor, ingresa al menos una palabra.";
+    return;
+  }
+
+  const palabras = input.split(",");
+  let maxUnicos = 0;
+  let palabraGanadora = "";
+
+  for (let palabra of palabras) {
+    palabra = palabra.trim().toUpperCase().replace(/[^A-Z]/g, "");
+    const unicos = new Set(palabra);
+    if (unicos.size > maxUnicos) {
+      maxUnicos = unicos.size;
+      palabraGanadora = palabra;
     }
+  }
 
-    const palabras = input.split(",");
-    let maxUnicos = 0;
-    let palabraGanadora = "";
-
-    for (let palabra of palabras) {
-        palabra = palabra.trim().toUpperCase().replace(/[^A-Z]/g, "");
-        const unicos = new Set(palabra);
-        if (unicos.size > maxUnicos) {
-            maxUnicos = unicos.size;
-            palabraGanadora = palabra;
-        }
-    }
-
-    output.textContent = `Palabra con más caracteres únicos: ${palabraGanadora} (${maxUnicos} caracteres únicos)`;
+  output.textContent = `Palabra con más caracteres únicos: ${palabraGanadora} (${maxUnicos})`;
 }

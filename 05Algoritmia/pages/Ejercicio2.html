@@ -5,24 +5,28 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ejercicio 2</title>
-        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../../css/stylesEjercicios.css">
     </head>
 
-    <body id="menu1">
-        <div class="contenedor-pagina">
+    <body id="practica05">
+    <div class="contenedor-pagina">
 
-            <div id="contenedor-tiempo" class="contenedor-tiempo" data-tiempo="44">
+        <div class="contenedor-superior">
+
+            <button id="boton-regresar" class="boton-ejercicio">Regresar</button>
+            
+            <div id="contenedor-tiempo" class="contenedor-tiempo" data-tiempo="40">
                 <div class="info-tiempo">
-                    <span id="etiqueta-tiempo">Temporizador:</span>
-                    <span id="valor-tiempo">44</span>
+                <span id="etiqueta-tiempo">Temporizador:</span>
+                <span id="valor-tiempo">40</span>
                 </div>
 
                 <div class="botones-tiempo">
                     <button id="boton-pausa" class="boton-ejercicio">Pausar</button>
-                    <button id="boton-siguiente" class="boton-ejercicio">Siguiente Ejercicio</button>
+                    <button id="boton-siguiente" class="boton-ejercicio">Siguiente ejercicio</button>
                 </div>
-            </div>
-
+          </div>
+      </div>
             <div class="contenedor-ejercicio">
                 <h2 class="titulo-ejercicio">Ejercicio 2 - Producto escalar mínimo</h2>   
 
@@ -71,13 +75,15 @@
                         </table>
                     </div>
         
-                        <button type="button" class="boton-general" style="margin-top: 1rem;" onclick="minimoProductoEscalar()">Calcular producto</button>
+                        <button type="button" class="boton-ejercicio" style="margin-top: 1rem;" onclick="minimoProductoEscalar()">Calcular producto</button>
                         <p id="salida-e2" class="salida-ejercicio">Esperando datos...</p>
                     </div>
                 </div>
             </div>
         
+            <script src="../../js/mainEjercicios.js"></script>
             <script src="../main.js"></script>
+            
         </body>
     </html>
     
