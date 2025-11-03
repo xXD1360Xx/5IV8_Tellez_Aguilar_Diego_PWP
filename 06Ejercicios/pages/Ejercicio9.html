@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 6 - Cálculo de Edad</title>
+        <link rel="stylesheet" href="../../css/stylesEjercicios.css">
+    </head>
+
+    <body id="practica06">
+        <div class="contenedor-pagina">
+            
+            <div class="contenedor-superior">
+                <button id="boton-regresar" class="boton-ejercicio">Regresar</button>
+                <div id="contenedor-tiempo" class="contenedor-tiempo" data-tiempo="30">
+                    <div class="info-tiempo">
+                        <span id="etiqueta-tiempo">Temporizador:</span>
+                        <span id="valor-tiempo">30</span>
+                    </div>
+                    <div class="botones-tiempo">
+                        <button id="boton-pausa" class="boton-ejercicio">Pausar</button>
+                        <button id="boton-siguiente" class="boton-ejercicio">Siguiente práctica</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contenedor-ejercicio">
+                <h2 class="titulo-ejercicio">Ejercicio 9 - Cálculo de Edad</h2>
+                <h3 class="descripcion-ejercicio">
+                    Ingresa tu fecha de nacimiento para conocer tu edad actual.
+                </h3>
+
+                <div class="contenido-ejercicio">
+                    <form>
+                        <table>
+                            <tr>
+                                <td>Fecha de nacimiento:</td>
+                                <td><input type="date" id="fechaNacimiento" required></td>
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                                <td><input type="button" value="Calcular Edad" class="boton-ejercicio" onclick="calcularEdad()"></td>
+                            </tr>
+
+                            <tr>
+                                <td>Tu edad es:</td>
+                                <td><input type="text" id="edadResultado" readonly></td>
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                                <td><input type="button" value="Borrar" class="boton-ejercicio" onclick="borrarCampos9()"></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <script src="../../js/mainEjercicios.js"></script>
+        <script src="../main.js"></script>
+
+    </body>
+</html>

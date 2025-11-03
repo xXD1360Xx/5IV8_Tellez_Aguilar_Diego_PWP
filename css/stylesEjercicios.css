@@ -1,0 +1,270 @@
+/* Colores según el menú */
+
+
+body#practica05 {
+  --color-texto: #ffb1b1;
+  --color-fondo-input: #1a0000;
+  --color-boton: #c0392b;
+  --color-boton-hover: #ff4d4d;
+  --color-boton-activo: #c62828;
+  --color-boton-temporizador: #8c0707;
+  --color-boton-temporizador-hover: #a60d0d;
+  --color-fondo-temporizador: rgba(30, 0, 0, 0.85);
+  --color-sombra: rgba(255, 0, 0, 0.2);
+  --color-valor-temporizador: #976262;
+  --color-fondo-salida: hsl(0, 100%, 20%);
+    --color-principal: #8b0000;      /* 🔹 AGREGADO */
+  --color-secundario: #3b0000;     /* 🔹 AGREGADO */
+    background: radial-gradient(circle at 30% 30%, var(--color-principal), var(--color-secundario), var(--color-fondo-input));
+
+}
+
+body#practica06 {
+ --color-texto: #fff7cc; /* texto cálido */
+  --color-fondo-input: #2b2400; /* fondo oscuro dorado */
+  --color-boton: #d4af37; /* tono oro viejo */
+  --color-boton-hover: #f5d76e; /* brillo dorado suave */
+  --color-boton-activo: #b59427; /* dorado quemado */
+  --color-boton-temporizador: #c9a227; /* dorado más suave */
+  --color-boton-temporizador-hover: #e3bf4a; /* reflejo más claro */
+  --color-fondo-temporizador: rgba(65, 55, 0, 0.85); /* fondo más oscuro tipo metal bruñido */
+  --color-sombra: rgba(255, 210, 100, 0.3);
+  --color-valor-temporizador: #f7e7a0;
+  --color-fondo-salida: hsl(48, 50%, 40%);
+  --color-principal: #e1c043; /* dorado base */
+  --color-secundario: #3b3200; /* marrón oscuro dorado */
+  --color-fondo-contenedor: rgba(55, 45, 0, 0.82);
+
+  /* ✨ Fondo metálico dorado brillante */
+  background: radial-gradient(
+      circle at 25% 75%,
+      var(--color-principal),
+      var(--color-secundario),
+      var(--color-fondo-input)
+    ),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 180, 0.15), transparent 70%);
+  background-blend-mode: overlay;
+}
+
+
+/* 🟩 Práctica 08 → Verde esmeralda */
+body#practica07 {
+  --color-texto: #eafff3;
+  --color-fondo-input: #003319;
+  --color-boton: #34c759;
+  --color-boton-hover: #70e99b;
+  --color-boton-activo: #28a745;
+  --color-boton-temporizador: #00a86b;
+  --color-boton-temporizador-hover: #008f57;
+  --color-fondo-temporizador: rgba(0, 168, 107, 0.2);
+  --color-sombra: rgba(0, 128, 70, 0.4);
+  --color-valor-temporizador: #004d26;
+  --color-fondo-salida: hsl(150, 100%, 20%);
+  --color-principal: #00a86b;
+  --color-secundario: #004d26;
+    background: radial-gradient(circle at 80% 80%, var(--color-principal), var(--color-secundario), var(--color-fondo-input));
+
+}
+@keyframes fondoMovimiento {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* =========================================================
+   🎨 ESTILOS GENERALES MEJORADOS (efecto metálico/gema)
+   ========================================================= */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-attachment: fixed;
+  margin: 0;
+  color: var(--color-texto);
+  background: radial-gradient(
+      circle at 30% 20%,
+      var(--color-principal),
+      var(--color-secundario),
+      var(--color-fondo-input)
+    ),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.05), transparent 70%);
+  background-blend-mode: overlay;
+  box-shadow: inset 0 0 60px var(--color-sombra);
+  transition: background 0.6s ease;
+}
+
+/* Contenedor principal */
+.contenedor-pagina {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  gap: 20px;
+}
+
+/* ======== TEMPORIZADOR ======== */
+.contenedor-tiempo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  background: var(--color-fondo-temporizador);
+  padding: 22px 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 25px var(--color-sombra),
+              inset 0 0 10px rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(2px);
+}
+
+.info-tiempo {
+  display: flex;
+  align-items: center; /* centrado perfecto vertical */
+  gap: 8px;
+  line-height: 1;
+}
+
+#etiqueta-tiempo {
+  display: flex;
+  align-items: center; /* alinea verticalmente con el número */
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--color-texto);
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+  transform: translateY(1px); /* pequeño ajuste visual */
+}
+
+#valor-tiempo {
+  font-size: 2.2em;
+  font-weight: bold;
+  color: var(--color-valor-temporizador);
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+  line-height: 1;
+  transform: translateY(-1px); /* contrapesa el ajuste del texto */
+}
+
+/* ======== BOTONES ======== */
+.boton-ejercicio,
+.botones-tiempo .boton-ejercicio {
+  background-color: var(--color-boton);
+  color: var(--color-texto);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  box-shadow:
+    0 3px 10px var(--color-sombra),
+    inset 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+
+
+.boton-ejercicio:hover,
+.botones-tiempo .boton-ejercicio:hover {
+  background-color: var(--color-boton-hover);
+  box-shadow:
+    0 0 15px var(--color-boton-hover),
+    inset 0 0 12px rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.boton-ejercicio:active,
+.botones-tiempo .boton-ejercicio:active {
+  background-color: var(--color-boton-activo);
+  transform: translateY(0);
+}
+
+/* ======== CONTENEDOR DEL EJERCICIO ======== */
+.contenedor-ejercicio {
+  background: var(--color-fondo-contenedor, rgba(20, 0, 0, 0.8));
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow:
+    0 4px 25px var(--color-sombra),
+    inset 0 0 15px rgba(255, 255, 255, 0.08);
+  max-width: 700px;
+  width: 100%;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(2px);
+  transition: all 0.3s ease;
+}
+
+/* ======== INPUTS ======== */
+.entrada-ejercicio,
+input[type="text"],
+input[type="number"],
+select {
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  background-color: var(--color-fondo-input);
+  color: var(--color-texto);
+  font-size: 1em;
+  box-sizing: border-box;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.08);
+  transition: box-shadow 0.2s ease;
+}
+
+.entrada-ejercicio:focus,
+input:focus,
+select:focus {
+  outline: none;
+  box-shadow:
+    0 0 12px var(--color-sombra),
+    inset 0 0 12px rgba(255, 255, 255, 0.15);
+}
+
+/* ======== SALIDA ======== */
+.salida-ejercicio {
+  background-color: var(--color-fondo-salida);
+  color: var(--color-texto);
+  text-align: center;
+  padding: 8px 15px;
+  border-radius: 6px;
+  width: fit-content;
+  margin: 15px auto 0 auto;
+  font-size: 0.95em;
+  box-shadow:
+    0 0 12px var(--color-sombra),
+    inset 0 0 10px rgba(255, 255, 255, 0.08);
+}
+
+/* ======== TÍTULOS Y TEXTOS ======== */
+h1, h2, h3, label, p, .titulo-ejercicio, .descripcion-ejercicio {
+  color: var(--color-texto);
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
+}
+
+/* ======== EFECTO SUAVE DE MOVIMIENTO DE FONDO ======== */
+@keyframes fondoMovimiento {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#boton-regresar {
+  position: absolute;
+  left: -120px;           /* lo saca un poco del bloque */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 15;
+}
+
+.contenedor-superior {
+   position: relative;
+  display: flex;
+  justify-content: center; /* el temporizador sigue centrado */
+  align-items: center;
+  margin-bottom: 1rem;   /* mantiene espacio debajo */    /* deja espacio visual para el botón flotante */
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5 - Porcentaje de Hombres y Mujeres</title>
+    <link rel="stylesheet" href="../../css/stylesEjercicios.css">
+  </head>
+  <body id="practica06">
+    
+    <div class="contenedor-pagina">
+
+      <div class="contenedor-superior">
+        <button id="boton-regresar" class="boton-ejercicio">Regresar</button>
+
+        <div id="contenedor-tiempo" class="contenedor-tiempo" data-tiempo="30">
+          <div class="info-tiempo">
+            <span id="etiqueta-tiempo">Temporizador:</span>
+            <span id="valor-tiempo">30</span>
+          </div>
+          <div class="botones-tiempo">
+            <button id="boton-pausa" class="boton-ejercicio">Pausar</button>
+            <button id="boton-siguiente" class="boton-ejercicio">Siguiente práctica</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="contenedor-ejercicio">
+        <h2 class="titulo-ejercicio">Ejercicio 8 — Porcentaje de Hombres y Mujeres</h2>
+
+        <h3 class="descripcion-ejercicio">
+          Ingresa la cantidad de hombres y mujeres para calcular su porcentaje respecto al total de alumnos.
+        </h3>
+
+        <div class="contenido-ejercicio">
+          <form onsubmit="return false;">
+            <table>
+
+              <tr>
+                <td>Cantidad de hombres:</td>
+                <td><input type="number" id="hombres" min="0" class="entrada-ejercicio"></td>
+              </tr>
+
+              <tr>
+                <td>Cantidad de mujeres:</td>
+                <td><input type="number" id="mujeres" min="0" class="entrada-ejercicio"></td>
+              </tr>
+
+              <tr>
+                <td></td>
+                <td>
+                  <button class="boton-ejercicio" onclick="calcularPorcentajes()">Calcular Porcentajes</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Porcentaje de hombres:</td>
+                <td><input type="text" id="porHombres" readonly class="entrada-ejercicio"></td>
+              </tr>
+
+              <tr>
+                <td>Porcentaje de mujeres:</td>
+                <td><input type="text" id="porMujeres" readonly class="entrada-ejercicio"></td>
+              </tr>
+
+              <tr>
+                <td></td>
+                <td>
+                  <button class="boton-ejercicio" onclick="borrarCampos8()">Borrar Datos</button>
+                </td>
+              </tr>
+
+            </table>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+
+    <script src="../../js/mainEjercicios.js"></script>
+    <script src="../main.js"></script>
+
+  </body>
+</html>

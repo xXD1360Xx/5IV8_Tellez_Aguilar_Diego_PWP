@@ -1,9 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 13</title>
+    <link rel="stylesheet" href="../../css/stylesEjercicios.css">
+</head>
 
-Calcular la utilidad de un trabajador que recibe le reparto de utilidades anual, si este se le asigna un porcentaje de acuerdo a su salario mensual y depende de la antigüedad de la empresa
+<body id="practica07">
 
-menos de 1 año 5%
-1 a 2 años 7%
-2 a 5 años 10 %
-5 a 10 años 15%
-mas de 10 20%
+    <div class="contenedor-pagina">
+
+        <div class="contenedor-superior">
+
+            <button id="boton-regresar" class="boton-ejercicio">Regresar</button>
+            
+            <div id="contenedor-tiempo" class="contenedor-tiempo" data-tiempo="40">
+                <div class="info-tiempo">
+                    <span id="etiqueta-tiempo">Temporizador:</span>
+                    <span id="valor-tiempo">40</span>
+                </div>
+
+                <div class="botones-tiempo">
+                    <button id="boton-pausa" class="boton-ejercicio">Pausar</button>
+                    <button id="boton-siguiente" class="boton-ejercicio">Siguiente ejercicio</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="contenedor-ejercicio" id="ejercicio12">
+
+            <h2 class="titulo-ejercicio">Ejercicio 13 - Reparto de Utilidades</h2>
+
+            <h3 class="descripcion-ejercicio">
+                Calcula la utilidad anual que recibe un trabajador según su salario mensual y antigüedad en la empresa.
+            </h3>
+
+            <label for="salario">Salario mensual:</label>
+            <input type="number" id="salario" class="entrada-ejercicio" required>
+            <br>
+
+            <label for="antiguedad">Años en la empresa:</label>
+            <input type="number" id="antiguedad" class="entrada-ejercicio" required>
+            <br>
+
+            <button type="button" id="boton-e12" class="boton-ejercicio" style="margin-top: 20px;">
+                Calcular Utilidad
+            </button>
+
+            <p id="resultado" class="salida-ejercicio">Esperando datos...</p>
+
+        </div>
+
+    </div>
+
+    <script src="../../js/mainEjercicios.js"></script>
+    <script src="../main.js"></script>
+
+</body>
+</html>

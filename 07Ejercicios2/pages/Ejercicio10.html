@@ -1,39 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 10</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 10</title>
+        <link rel="stylesheet" href="../../css/stylesEjercicios.css">
+    </head>
 
-<body>
-    <div class="container">
-        <div class="ejercicio-container">
-            <h2 class="ejercicio-title">Ejercicio 10 - Operaciones con Números</h2>
-
-            <h3 class="ejercicio-description"> 
-                Deberan de crear un formulario en el cual se deben de leer 2 números, si son iguales que los múltiple, si el primero mayor que el segundo que los reste y sino que los sume. 
-            </h3>
+    <body id="practica07">
         
-            <form id="form">
+        <div class="contenedor-pagina">
+
+            <div class="contenedor-superior">
+
+                <button id="boton-regresar" class="boton-ejercicio">Regresar</button>
+                
+                <div id="contenedor-tiempo" class="contenedor-tiempo" data-tiempo="30">
+                    <div class="info-tiempo">
+                        <span id="etiqueta-tiempo">Temporizador:</span>
+                        <span id="valor-tiempo">30</span>
+                    </div>
+
+                    <div class="botones-tiempo">
+                        <button id="boton-pausa" class="boton-ejercicio">Pausar</button>
+                        <button id="boton-siguiente" class="boton-ejercicio">Siguiente ejercicio</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="contenedor-ejercicio" id="ejercicio10">
+
+                <h2 class="titulo-ejercicio">Ejercicio 10 - Operaciones con Números</h2>
+
+                <h3 class="descripcion-ejercicio">
+                    Deberán crear un formulario en el cual se deben leer 2 números, si son iguales que los multiplique, 
+                    si el primero es mayor que el segundo que los reste y sino que los sume.
+                </h3>
+
                 <label for="num1">Número 1:</label>
-                <input type="number" id="num1" required>
+                <input type="number" id="num1" class="entrada-ejercicio" required>
+
                 <br>
+
                 <label for="num2">Número 2:</label>
-                <input type="number" id="num2" required>
+                <input type="number" id="num2" class="entrada-ejercicio" required>
+
                 <br>
-                <button type="submit">Enviar</button>
-           </form>
-            <p id="resultado"></p>
+
+                <button type="button" id="boton-e10" class="boton-ejercicio" style="margin-top: 20px;">
+                    Enviar
+                </button>
+
+                <p id="resultado" class="salida-ejercicio">Esperando números...</p>
+
+            </div>
 
         </div>
-    </div>
-    <script src="../main.js"></script>
-</body>
+
+        <script src="../../js/mainEjercicios.js"></script>
+        <script src="../main.js"></script>
+
+    </body>
 </html>
-
-
-
-

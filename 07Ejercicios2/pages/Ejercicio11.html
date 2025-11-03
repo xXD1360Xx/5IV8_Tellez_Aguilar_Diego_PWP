@@ -1,3 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 11</title>
+    <link rel="stylesheet" href="../../css/stylesEjercicios.css">
+</head>
+
+<body id="practica07">
+
+    <div class="contenedor-pagina">
+
+        <div class="contenedor-superior">
+
+            <button id="boton-regresar" class="boton-ejercicio">Regresar</button>
+            
+            <div id="contenedor-tiempo" class="contenedor-tiempo" data-tiempo="25">
+                <div class="info-tiempo">
+                    <span id="etiqueta-tiempo">Temporizador:</span>
+                    <span id="valor-tiempo">25</span>
+                </div>
+
+                <div class="botones-tiempo">
+                    <button id="boton-pausa" class="boton-ejercicio">Pausar</button>
+                    <button id="boton-siguiente" class="boton-ejercicio">Siguiente ejercicio</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="contenedor-ejercicio" id="ejercicio11">
+
+            <h2 class="titulo-ejercicio">Ejercicio 11 - Mayor de Tres Números</h2>
+
+            <h3 class="descripcion-ejercicio">
+                Leer tres números diferentes e imprimir el número mayor de los tres.
+            </h3>
+
+            <label for="num1">Número 1:</label>
+            <input type="number" id="num1" class="entrada-ejercicio" required>
+            <br>
+
+            <label for="num2">Número 2:</label>
+            <input type="number" id="num2" class="entrada-ejercicio" required>
+            <br>
+
+            <label for="num3">Número 3:</label>
+            <input type="number" id="num3" class="entrada-ejercicio" required>
+            <br>
+
+            <button type="button" id="boton-e11" class="boton-ejercicio" style="margin-top: 20px;">
+                Enviar
+            </button>
+
+            <p id="resultado" class="salida-ejercicio">Esperando números...</p>
+
+        </div>
+
+    </div>
+
+    <script src="../../js/mainEjercicios.js"></script>
+    <script src="../main.js"></script>
 
 
-Leer tres números diferentes e imprimir el numero mayor de los 3.
+</body>
+</html>

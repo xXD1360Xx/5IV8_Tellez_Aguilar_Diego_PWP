@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 5 - Sueldo con Ventas</title>
+        <link rel="stylesheet" href="../../css/stylesEjercicios.css">
+    </head>
+
+    <body id="practica06">
+        <div class="contenedor-pagina">
+
+            <div class="contenedor-superior">
+                <button id="boton-regresar" class="boton-ejercicio">Regresar</button>
+
+                <div id="contenedor-tiempo" class="contenedor-tiempo" data-tiempo="40">
+                    <div class="info-tiempo">
+                    <span id="etiqueta-tiempo">Temporizador:</span>
+                    <span id="valor-tiempo">40</span>
+                    </div>
+                    <div class="botones-tiempo">
+                    <button id="boton-pausa" class="boton-ejercicio">Pausar</button>
+                    <button id="boton-siguiente" class="boton-ejercicio">Siguiente práctica</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contenedor-ejercicio">
+            <h2 class="titulo-ejercicio">Ejercicio 5 — Cálculo de Sueldo con Ventas</h2>
+
+            <h3 class="descripcion-ejercicio">
+                Ingresa el sueldo base y las cantidades de las 3 ventas realizadas.
+                El vendedor gana <b>10% de comisión</b> sobre las ventas totales.
+            </h3>
+
+            <div class="contenido-ejercicio">
+                <form onsubmit="return false;">
+                <table>
+                    <tr>
+                    <td>Sueldo base:</td>
+                    <td><input type="number" id="sueldoBase" step="1" required class="entrada-ejercicio"></td>
+                    </tr>
+
+                    <tr>
+                    <td>Venta 1:</td>
+                    <td><input type="number" id="venta1" step="1" required class="entrada-ejercicio"></td>
+                    </tr>
+
+                    <tr>
+                    <td>Venta 2:</td>
+                    <td><input type="number" id="venta2" step="1" required class="entrada-ejercicio"></td>
+                    </tr>
+
+                    <tr>
+                    <td>Venta 3:</td>
+                    <td><input type="number" id="venta3" step="1" required class="entrada-ejercicio"></td>
+                    </tr>
+
+                    <tr>
+                    <td></td>
+                    <td><button class="boton-ejercicio" type="button" onclick="calcularSueldo()">Calcular Sueldo</button></td>
+                    </tr>
+
+                    <tr>
+                    <td>Comisión (10%):</td>
+                    <td><input type="text" id="comision" readonly class="entrada-ejercicio"></td>
+                    </tr>
+
+                    <tr>
+                    <td>Sueldo Total:</td>
+                    <td><input type="text" id="sueldoTotal" readonly class="entrada-ejercicio"></td>
+                    </tr>
+
+                    <tr>
+                    <td></td>
+                    <td><button class="boton-ejercicio" type="button" onclick="borrarCampos5()">Borrar Datos</button></td>
+                    </tr>
+                </table>
+                </form>
+            </div>
+        </div>
+
+        <script src="../../js/mainEjercicios.js"></script>
+        <script src="../main.js"></script>
+
+    </body>
+    
+</html>

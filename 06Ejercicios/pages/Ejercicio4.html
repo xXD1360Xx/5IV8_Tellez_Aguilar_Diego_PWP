@@ -1,80 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 4 - Inversiones</title>
+        <link rel="stylesheet" href="../../css/stylesEjercicios.css">
+    </head>
+    <body id="practica06">
+        <div class="contenedor-pagina">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 4</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
+            <div class="contenedor-superior">
+                <button id="boton-regresar" class="boton-ejercicio">Regresar</button>
+                
+                <div id="contenedor-tiempo" class="contenedor-tiempo" data-tiempo="40">
+                    <div class="info-tiempo">
+                        <span id="etiqueta-tiempo">Temporizador:</span>
+                        <span id="valor-tiempo">40</span>
+                    </div>
 
-<body>
-    <div class="container">
-        <div class="ejercicio-container">
-            <h2 class="ejercicio-tittle">Ejercicio 4 - Cálculo de Inversiones</h2>
+                    <div class="botones-tiempo">
+                        <button id="boton-pausa" class="boton-ejercicio">Pausar</button>
+                        <button id="boton-siguiente" class="boton-ejercicio">Siguiente práctica</button>
+                    </div>
+                </div>
+            </div>
 
-            
-            <h2>Formulario para cálculo de inversiones</h2>
-            <p>Banco Kawaii con un incremento del 8.05% anual</p>
+            <div class="contenedor-ejercicio">
+                <h2 class="titulo-ejercicio">Ejercicio 4 - Cálculo de Inversiones</h2>
 
-            <form name="formulario" action="#" method="post">
-                <table>
+                <h3 class="descripcion-ejercicio">
+                    Banco Kawaii con un incremento del 8.05% anual. <br>
+                    Introduce la cantidad que deseas invertir y el plazo en meses.
+                </h3>
 
-                    <tr>
-                    <td>
-                        ¿A cuántos meses deseas invertir? 
-                        <br>
-                        <small>Considera que la tasa de interés anual es de 8.05%</small>
-                    </td>
-                    <td>
-                        <select name="mesesI" id="mesesI" required>
-                        <option value="">-- Selecciona un plazo --</option>
-                        <option value="3">3 meses</option>
-                        <option value="6">6 meses</option>
-                        <option value="12">12 meses</option>
-                        <option value="18">18 meses</option>
-                        </select>
-                    </td>
-                    </tr>
+                <div class="contenido-ejercicio">
+                    <form name="formulario" action="#" method="post">
+                        <table>
+                            <tr>
+                                <td>¿A cuántos meses deseas invertir?<br>
+                                    <small>Considera que la tasa de interés anual es de 8.05%</small>
+                                </td>
+                                <td>
+                                    <select name="mesesI" id="mesesI" required>
+                                        <option value="">-- Selecciona un plazo --</option>
+                                        <option value="3">3 meses</option>
+                                        <option value="6">6 meses</option>
+                                        <option value="12">12 meses</option>
+                                        <option value="18">18 meses</option>
+                                    </select>
+                                </td>
+                            </tr>
 
+                            <tr>
+                                <td>Introduce la cantidad a invertir:</td>
+                                <td><input type="text" name="cantidadI" id="cantidadI" onkeypress="return validarNumero(event)"></td>
+                            </tr>
 
-                    <tr>
-                        <td>Introduce la cantidad que deseas invertir por 1 año:</td>
-                        <td>
-                            <input type="text" name="cantidadI" id="cantidadI" onkeypress="return validarNumero(event)">
-                        </td>
-                    </tr>
+                            <tr>
+                                <td></td>
+                                <td><input type="button" value="Calcular Interés" class="boton-ejercicio" onclick="calcularInteres()"></td>
+                            </tr>
 
-                    <tr>
-                        <td></td>
-                        <td>
-                            <input type="button" value="Calcular Interés" onclick="calcularInteres()">
-                        </td>
-                    </tr>
+                            <tr>
+                                <td>Su saldo total con el interés es de:</td>
+                                <td><input type="text" name="sueldoI" id="saldoI" readonly></td>
+                            </tr>
 
-                    <tr>
-                        <td>Su saldo total con el interés es de:</td>
-                        <td>
-                            <input type="text" name="sueldoI" id="saldoI" readonly>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td></td>
-                        <td>
-                            <input type="button" value="Borrar Datos" name="borrar" onclick="borrarCampos()">
-                        </td>
-                    </tr>
-                </table>
-            </form>
+                            <tr>
+                                <td></td>
+                                <td><input type="button" value="Borrar Datos" class="boton-ejercicio" onclick="borrarCampos4()"></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
 
         </div>
-    </div>
-  
+
+        <script src="../../js/mainEjercicios.js"></script>
+        <script src="../main.js"></script>
         
-
-
-    <script src="funciones1.js"></script>
-
-</body>
+    </body>
 </html>

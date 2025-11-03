@@ -1,2 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
 
-Determinar la cantidad de dinero que recibe un trabajador por concepto de hrs extra trabajadas dentro de la empresa, sabiendo que cuando las horas de trabajo exceden de 40, el resto se consideran hrs extra, y que estas se pagan al doble de una hora normal, cuando no exceden de 8, si las hrs extra exceden de 8 se pagan las primeras 8 al doble y el resto al triple.
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 12</title>
+    <link rel="stylesheet" href="../../css/stylesEjercicios.css">
+</head>
+
+<body id="practica07">
+
+    <div class="contenedor-pagina">
+
+        <div class="contenedor-superior">
+
+            <button id="boton-regresar" class="boton-ejercicio">Regresar</button>
+            
+            <div id="contenedor-tiempo" class="contenedor-tiempo" data-tiempo="40">
+                <div class="info-tiempo">
+                    <span id="etiqueta-tiempo">Temporizador:</span>
+                    <span id="valor-tiempo">40</span>
+                </div>
+
+                <div class="botones-tiempo">
+                    <button id="boton-pausa" class="boton-ejercicio">Pausar</button>
+                    <button id="boton-siguiente" class="boton-ejercicio">Siguiente ejercicio</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="contenedor-ejercicio" id="ejercicio11">
+
+            <h2 class="titulo-ejercicio">Ejercicio 12 - Pago de Horas Extra</h2>
+
+            <h3 class="descripcion-ejercicio">
+                Determinar cuánto recibe un trabajador por horas extra. <br>
+                Las primeras 40 hrs se pagan normales, las siguientes hasta 8 al doble, y el resto al triple.
+            </h3>
+
+            <label for="horas">Horas trabajadas:</label>
+            <input type="number" id="horas" class="entrada-ejercicio" required>
+            <br>
+
+            <label for="pagoHora">Pago por hora normal:</label>
+            <input type="number" id="pagoHora" class="entrada-ejercicio" required>
+            <br>
+
+            <button type="button" id="boton-e11" class="boton-ejercicio" style="margin-top: 20px;">
+                Calcular Pago
+            </button>
+
+            <p id="resultado" class="salida-ejercicio">Esperando datos...</p>
+
+        </div>
+
+    </div>
+
+    <script src="../../js/mainEjercicios.js"></script>
+    <script src="../main.js"></script>
+
+
+</body>
+</html>
