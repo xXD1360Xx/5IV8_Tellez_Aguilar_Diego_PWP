@@ -30,13 +30,13 @@ var columnaVacia = 2;
 
 function mostrarInstrucciones(instrucciones){
     for(var i = 0; i < instrucciones.length; i++){
-        mostrarIntruccionesLista(instrucciones[i], "lista-instrucciones");
+        mostrarInstruccionesLista(instrucciones[i], "lista-instrucciones");
     }
 } 
 
 //esta funcion se encarga de crear el componente li y agregar la lista de dichas instrucciones
 
-function mostrarIntruccionesLista(instruccion, idLista){
+function mostrarInstruccionesLista(instruccion, idLista){
     var ul = document.getElementById(idLista);
     var li = document.createElement("li");
     li.textContent = instruccion;

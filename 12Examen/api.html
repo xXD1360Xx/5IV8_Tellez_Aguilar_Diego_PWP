@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personajes de Rick y Morty</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="https://kit.fontawesome.com/8df9939c8e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>Personajes de Rick y Morty</h1>
+    </header>
+
+    <section>
+
+        <div class="barra-superior">
+            <h2 class="titulo-seccion">Explora los personajes</h2>
+            <button id="botonFiltros" class="btn-filtros">Filtros</button>
+        </div>
+
+        <div id="panelFiltros">
+            <div class="contenido-filtros">
+                <button id="cerrarFiltros" class="btn-cerrar">&times;</button>
+                <h3>Filtros</h3>
+
+                <div class="filtros-opciones">
+                    <label for="filtroEstado">Estado:</label>
+                    <select id="filtroEstado">
+                        <option value="">Todos</option>
+                        <option value="alive">Vivo</option>
+                        <option value="dead">Muerto</option>
+                        <option value="unknown">Desconocido</option>
+                    </select>
+
+                    <label for="filtroGenero">Género:</label>
+                    <select id="filtroGenero">
+                        <option value="">Todos</option>
+                        <option value="male">Masculino</option>
+                        <option value="female">Femenino</option>
+                        <option value="genderless">Sin género</option>
+                        <option value="unknown">Desconocido</option>
+                    </select>
+
+                    <label for="filtroProtagonista">Protagonista:</label>
+                    <select id="filtroProtagonista">
+                        <option value="">Todos</option>
+                        <option value="rick">Rick</option>
+                        <option value="morty">Morty</option>
+                        <option value="summer">Summer</option>
+                        <option value="beth">Beth</option>
+                        <option value="jerry">Jerry</option>
+                    </select>
+                </div>
+
+                <button id="aplicarFiltros" class="btn">Aplicar</button>
+            </div>
+        </div>
+
+        <div id="contenedorPersonajes" class="rejilla-personajes"></div>
+
+        <div class="paginacion">
+            <button id="botonAnterior" class="btn"><i class="fa-solid fa-caret-left"></i> Anterior</button>
+            <span id="numeroPagina">Página 1</span>
+            <button id="botonSiguiente" class="btn">Siguiente <i class="fa-solid fa-caret-right"></i></button>
+        </div>
+    </section>
+
+    <div id="panelDetalle" class="panel-oculto">
+        <div class="contenido-panel">
+            <button id="botonCerrar" class="btn-cerrar">✖</button>
+            <img id="imagenDetalle" src="" alt="Imagen del personaje">
+            <h3 id="nombreDetalle"></h3>
+            <p><strong>Especie:</strong> <span id="especieDetalle"></span></p>
+            <p><strong>Estado:</strong> <span id="estadoDetalle"></span></p>
+            <p><strong>Género:</strong> <span id="generoDetalle"></span></p>
+            <p><strong>Origen:</strong> <span id="origenDetalle"></span></p>
+            <p><strong>Ubicación:</strong> <span id="ubicacionDetalle"></span></p>
+        </div>
+    </div>
+
+    <script src="./js/fetch.js"></script>
+</body>
+</html>
