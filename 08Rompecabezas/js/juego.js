@@ -132,12 +132,12 @@ function moverEnDireccion(direccion){
 
 }
 
-function intercambiarPosiciones(fila1, columna1, fila2, columa2){
+function intercambiarPosiciones(fila1, columna1, fila2, columna2){
     var pieza1 = rompe[fila1][columna1];
     var pieza2 = rompe[fila2][columna2];
 
     //intercambio ya debe de ser por parte de los frames y el html
-    intercambiarPosicionesRompe(fila1, columna1, fila2, columa2);
+    intercambiarPosicionesRompe(fila1, columna1, fila2, columna2);
     //para el html
     intercambiarPosicionesDOM('pieza'+pieza1, 'pieza'+pieza2);
     
