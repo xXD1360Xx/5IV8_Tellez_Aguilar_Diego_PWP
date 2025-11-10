@@ -16,7 +16,7 @@ body {
 #bodyPokemon{
     background-image: url(../images/pokemon.png);
     background-position: center center; 
-  background-position: center calc(50% + 170px); /* baja 80px desde el centro */
+  background-position: center calc(50% + 90px); /* baja 80px desde el centro */
   background-repeat: no-repeat;
 
     
