@@ -15,7 +15,11 @@ body {
 
 #bodyPokemon{
     background-image: url(../images/pokemon.png);
-    background-position: center center;
+    background-position: center center; 
+  background-position: center calc(50% + 170px); /* baja 80px desde el centro */
+  background-repeat: no-repeat;
+
+    
 
 }
 
@@ -114,8 +118,13 @@ li::before {
 
 /*  títulos, las instrucciones y el footer.*/
 
+#lista-instrucciones {
+  margin-left: 40px; /* mueve solo la lista, no el título */
+}
+
 #instrucciones h2 {
     text-align: center;
+
     font-size: 18px;
     font-family: 'Courier New', Courier, monospace;
     color: #000;
@@ -186,4 +195,67 @@ li::before {
     background-image: -o-linear-gradient(top, #2079b0, #eb94d0);
     background-image: linear-gradient(to bottom, #2079b0, #eb94d0);
     text-decoration: none;
+}
+
+/* Estilo general de botones */
+.boton-accion {
+  background: linear-gradient(135deg, #ffcc00, #ff9900, #0099ff);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Efecto hover */
+.boton-accion:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #ffffff, #ffcc00, #0099ff);
+}
+
+/* Botón “Regresar al menú” en la esquina superior izquierda */
+#btnMenu {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 10;
+}
+
+/* Botón “Mezclar de nuevo” centrado bajo el título */
+.botonMezclar {
+  background: linear-gradient(135deg, #ffcc00, #ff9900, #0099ff);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  /* 🔸 Alineación y separación */
+  display: block;              /* Se comporta como un bloque */
+  margin: 25px auto 25px auto; /* Centrado y con espacio respecto al título */
+  text-align: center;
+}
+
+/* 🔹 Efecto hover */
+.botonMezclar:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #ffdd33, #ffaa33, #33aaff);
+}
+
+/* Estilo del título */
+.titulo-rompecabezas {
+  text-align: center;
+  color: #ff6600;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  margin-top: 60px;
+  margin-bottom: 10px; /* evita que se pegue al botón */
+  font-size: 36px;
 }

@@ -1,11 +1,18 @@
 //Nueva función
 var contadorMovimientos = 0;
 var juegoIniciado = false;
+var mezclando = false;
+
 
 var instrucciones = [
     "Utiliza las flechas de navegación para mover las piezas, ",
-    "Para Ordenar las piezas guiate por la imagen Objetivo"
+    "Para ordenar las piezas guiate<br>por la imagen objetivo. "
 ];
+
+//Nueva función (bot[on regresar a menú])
+function irAlMenu() {
+  window.location.href = "./index.html";
+}
 
 //vamos a guardar dentro de una variable los movimientos del rompecabezas
 var movimientos = [];
@@ -42,7 +49,7 @@ function mostrarInstrucciones(instrucciones){
 function mostrarInstruccionesLista(instruccion, idLista){
     var ul = document.getElementById(idLista);
     var li = document.createElement("li");
-    li.textContent = instruccion;
+    li.innerHTML = instruccion;
     ul.appendChild(li);
 }
 
@@ -131,8 +138,10 @@ function moverEnDireccion(direccion){
         actualizarPosicionVacia(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
         //tengo que guardar el ultimo movimiento
 
-        actualizarUltimoMovimiento(direccion);
-        actualizarContador();
+        if (!mezclando) {
+            actualizarUltimoMovimiento(direccion);
+            actualizarContador();
+        }
     }
 
 }
@@ -166,6 +175,7 @@ function intercambiarPosicionesDOM(idPieza1, idPieza2){
 
 //debo de actualizar los movimientos en el DOM
 function actualizarUltimoMovimiento(direccion){
+    if (!juegoIniciado || mezclando) return;
     if (!juegoIniciado) return; 
     var ultimoMovimiento = document.getElementById("flecha");
     switch(direccion){
@@ -194,14 +204,18 @@ function actualizarContador() {
 
 //poder mezclar todas las piezas
 function mezclarPiezas(veces){
+    mezclando = true;
     if(veces <= 0){
+        mezclando = false;
         juegoIniciado = true;
+        contadorMovimientos = 0;
+        document.getElementById("contador").textContent = contadorMovimientos;
+        document.getElementById("flecha").textContent = ""; 
         alert("Se han mezclado las piezas correctamente");
         return;
     }
 
     var direcciones = [codigosDireccion.ABAJO, codigosDireccion.ARRIBA, codigosDireccion.DERECHA, codigosDireccion.IZQUIERDA];
-
     var direccion = direcciones[Math.floor(Math.random() * direcciones.length)];
 
     moverEnDireccion(direccion);
