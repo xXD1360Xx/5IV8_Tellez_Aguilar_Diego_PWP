@@ -9,23 +9,44 @@
 <body id="bodyPokemon">
     <div class="col-40" >
         <div id="titulo" >
-            <button id="btnMenu" class="boton-accion" onclick="irAlMenu()">Regresar al menú</button>
-            <h1 class="titulo-rompecabezas">Rompecabezas <br> ૮₍ ´˶• ᴥ •˶` ₎ა </h1>
-            <button class="botonMezclar" onclick="mezclarPiezas(30)">Mezclar de nuevo</button>
+            <button id="btnMenu" class="boton-accion" onclick="irAlMenu()">
+                Regresar al menú
+            </button>
+            
+            <h1 
+                class="titulo-rompecabezas">Rompecabezas
+                <br
+                >♡〜٩( ˃▿˂ )۶〜♡
+            </h1>
+            
+            <button class="botonMezclar" onclick="iniciar()">
+                Mezclar de nuevo
+            </button>
+            
             <div id="instrucciones" >
                 <h2>Instrucciones del Juego</h2>
                 <ul id="lista-instrucciones" ></ul>
             </div>
+
             <div id="objetivo" >
                 <h2>Objetivo del Juego</h2>
                 <div class="texto-centrado">
-                    <img src="./images/pikachu.png" alt="">
+                    <img src="./images/final.png" alt="">
                 </div>
             </div>
+
+            <div id="configuracion-dificultad">
+                <h2>Dificultad del juego</h2>
+                <label for="dificultad">Selecciona la dificultad:</label>
+                <input type="range" id="dificultad" min="0" max="10" value="5" oninput="actualizarDificultad(this.value)">
+                <span id="valorDificultad">5</span>
+            </div>
+
             <div id="ultimo-mov" >
                 <h2>Ultimo Movimiento</h2>
                 <div id="flecha" class="texto-centrado" ></div>
             </div>
+
             <div id="contador-movimientos">
                 <h2>Movimientos realizados: <span id="contador">0</span></h2>
             </div>

@@ -39,6 +39,7 @@ li::before {
 }
 
 .col-40 h1 {
+    margin-bottom: 12px; /* antes podía estar en 25px o más */
     margin: 0% auto;
     text-align: center;
     font-size: 27px;
@@ -258,4 +259,105 @@ li::before {
   margin-top: 60px;
   margin-bottom: 10px; /* evita que se pegue al botón */
   font-size: 36px;
+}
+
+
+
+/* Contenedor del modo de juego */
+#configuracionModo {
+  display: flex;
+  align-items: center;      /* Centra verticalmente todo */
+  justify-content: center;  /* Centra horizontalmente todo el grupo */
+  gap: 15px;                /* Espaciado entre elementos */
+  margin-top: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Texto de etiquetas */
+.modo-texto {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
+/* Estilo del interruptor */
+.interruptor-contenedor {
+  position: relative;
+  width: 55px;
+  height: 28px;
+}
+
+.interruptor-contenedor input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.interruptor-deslizante {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #4facfe, #00f2fe); /* degradado del botón */
+  border-radius: 30px;
+  transition: .4s;
+}
+
+.interruptor-deslizante::before {
+  content: "";
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: .4s;
+}
+
+.interruptor-contenedor input:checked + .interruptor-deslizante::before {
+  transform: translateX(26px);
+}
+
+/* Texto "Principiante / Experto" */
+.modo-texto {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+  line-height: 1;      /* corrige centrado vertical */
+  margin-top: 2px;     /* ligera corrección de alineación */
+}
+
+/* Mensaje que aparece en modo experto */
+.mensaje-experto {
+  text-align: center;
+  color: #222;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+#configuracion-dificultad h2,
+#configuracion-dificultad label {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+#dificultad {
+  width: 85%;
+  height: 10px;
+  accent-color: #0099ff; /* color azul del slider */
+  margin-top: 5px;
+}
+
+/* 🔹 Valor numérico de dificultad más visible */
+#valorDificultad {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #333;
+  margin-left: 8px;
+  vertical-align: middle;
 }

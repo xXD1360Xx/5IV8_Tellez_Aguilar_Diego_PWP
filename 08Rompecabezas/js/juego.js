@@ -1,18 +1,36 @@
-//Nueva función
+//Nueva función y requerimiento funcinoal Contador de movimientos (RF2 ID del Excel y Jira)
+var ultimaDireccion = null;
+var dificultad = 5;
+var mezclaInicialHecha = false;
+
+function actualizarDificultad(valor) {
+  dificultad = parseInt(valor);
+  document.getElementById("valorDificultad").textContent = valor;
+}
+
+function calcularMovimientosPorDificultad() {
+  if (dificultad === 0) return 4;
+  if (dificultad === 1) return 7;
+  return dificultad * 5;
+}
+
+
+
+//Nueva función Contador de movimientos (NuF1)
 var contadorMovimientos = 0;
 var juegoIniciado = false;
 var mezclando = false;
 
 
-var instrucciones = [
-    "Utiliza las flechas de navegación para mover las piezas, ",
-    "Para ordenar las piezas guiate<br>por la imagen objetivo. "
-];
 
-//Nueva función (bot[on regresar a menú])
+//NuFueva función Botón de regresar a menú (NuF2)
 function irAlMenu() {
   window.location.href = "./index.html";
 }
+
+
+
+
 
 //vamos a guardar dentro de una variable los movimientos del rompecabezas
 var movimientos = [];
@@ -32,11 +50,19 @@ var rompeCorrecta = [
     [7, 8, 9]
 ]
 
+var piezas = [];
+
 //necesito saber las coordenadas de la pieza vacia, la que se va a mover
 var filaVacia = 2;
 var columnaVacia = 2;
 
 //necesitamos ahora si una funcion que se encargue de mostrar las intrucciones
+
+var instrucciones = [
+    "Utiliza las flechas de navegación para mover las piezas, ",
+    "Para ordenar las piezas guiate<br>por la imagen objetivo. "
+];
+
 
 function mostrarInstrucciones(instrucciones){
     for(var i = 0; i < instrucciones.length; i++){
@@ -216,7 +242,11 @@ function mezclarPiezas(veces){
     }
 
     var direcciones = [codigosDireccion.ABAJO, codigosDireccion.ARRIBA, codigosDireccion.DERECHA, codigosDireccion.IZQUIERDA];
-    var direccion = direcciones[Math.floor(Math.random() * direcciones.length)];
+    var direccion;
+    //definitemos la direccion a mover hasta que la ultima direccion NO sea su opuesta 
+        do {
+            direccion = direcciones[Math.floor(Math.random() * direcciones.length)];
+        } while (ultimaDireccion && esDireccionOpuesta(direccion, ultimaDireccion));
 
     moverEnDireccion(direccion);
 
@@ -243,16 +273,123 @@ function capturarTeclas(){
     });
 }
 
-function iniciar(){
-    contadorMovimientos = 0;
-    document.getElementById("contador").textContent = contadorMovimientos;
-    //mezclar las piezas
-    mezclarPiezas(40);
-    capturarTeclas();
-    //mezclarPiezas
+//Reordenamos el puzzle antes de volver a mezclar con la dificultad escogida
+function reiniciarRompecabezas() {
+  rompe = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+  ];
+
+  filaVacia = 2;
+  columnaVacia = 2;
+
+  // Restablecer en el DOM
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      const idPieza = "pieza" + rompe[i][j];
+      const pieza = document.getElementById(idPieza);
+      const contenedor = pieza.parentNode;
+      contenedor.appendChild(pieza);
+    }
+  }
 }
 
-iniciar();
+function mezclarInstantaneo() {
+    mezclando = true;
+  let mezclas = calcularMovimientosPorDificultad();
+
+  for (let i = 0; i < mezclas; i++) {
+    let direcciones = [
+      codigosDireccion.ABAJO,
+      codigosDireccion.ARRIBA,
+      codigosDireccion.DERECHA,
+      codigosDireccion.IZQUIERDA
+    ];
+    let direccion;
+    do {
+      direccion = direcciones[Math.floor(Math.random() * direcciones.length)];
+    } while (ultimaDireccion && esDireccionOpuesta(direccion, ultimaDireccion));
+    moverEnDireccion(direccion);
+  }
+
+    mezclando = false;
+  juegoIniciado = true;
+  contadorMovimientos = 0;
+  document.getElementById("contador").textContent = contadorMovimientos
+  document.getElementById("flecha").textContent = ""; ;
+}
+
+function cambiarModoExperto(checked) {
+  const tablero = document.getElementById("juego");
+  const mensaje = document.getElementById("mensajeExperto");
+  const textoModo = document.getElementById("modoTexto");
+
+  if (checked) {
+    // 🟢 Modo PRINCIPIANTE
+    tablero.style.background = "linear-gradient(135deg, #4facfe, #00f2fe)";
+    mensaje.style.display = "none";
+    textoModo.textContent = "Principiante";
+
+    piezas.forEach(pieza => {
+      pieza.style.transition = "opacity 0.3s ease";
+      pieza.style.opacity = "1";
+      pieza.style.visibility = "visible";
+    });
+  } else {
+    // 🔵 Modo EXPERTO
+    tablero.style.background = "linear-gradient(135deg, #4facfe, #00f2fe)";
+    mensaje.style.display = "block";
+    textoModo.textContent = "Principiante"; // siempre dice "Principiante" a la derecha
+
+    // Ocultamos solo visualmente, sin volverlas invisibles en DOM
+    piezas.forEach(pieza => {
+      pieza.style.transition = "none"; // evita parpadeos
+      pieza.style.opacity = "1"; // mantenlas visibles, aunque no haya fondo guía
+      pieza.style.visibility = "visible";
+    });
+
+    // Mezclar sin animación visible
+    reiniciarRompecabezas();
+    mezclarInstantaneo();
+  }
+}
+
+
+
+function iniciar(){
+  contadorMovimientos = 0;
+  document.getElementById("contador").textContent = contadorMovimientos;
+
+  const switchExperto = document.getElementById("modoExperto");
+  const esPrincipiante = switchExperto.checked;
+
+  if (mezclaInicialHecha) {
+    reiniciarRompecabezas();
+    mezclas = calcularMovimientosPorDificultad();
+  } else {
+    mezclas = 25;
+    mezclaInicialHecha = true;
+  }
+
+  // 🔹 Si está en modo experto → desordenar instantáneamente
+  if (!esPrincipiante) {
+    mezclarInstantaneo();
+    return; // salimos para que no ejecute la mezcla animada
+  }
+
+  // 🔹 Si está en modo principiante → mezclar con animación
+  mezclarPiezas(mezclas);
+  capturarTeclas();
+}
+
+
+window.onload = function() {
+  piezas = Array.from(document.querySelectorAll(".piezas"));
+  const switchExperto = document.getElementById("modoExperto");
+  iniciar(); 
+  cambiarModoExperto(switchExperto.checked); // sincroniza con el estado visual del switch
+};
 
 //mandamos traer a la funcion
 mostrarInstrucciones(instrucciones);
