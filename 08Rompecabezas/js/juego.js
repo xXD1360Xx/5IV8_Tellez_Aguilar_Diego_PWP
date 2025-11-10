@@ -1,5 +1,6 @@
 //Nueva función
 var contadorMovimientos = 0;
+var juegoIniciado = false;
 
 var instrucciones = [
     "Utiliza las flechas de navegación para mover las piezas, ",
@@ -129,6 +130,7 @@ function moverEnDireccion(direccion){
         intercambiarPosiciones(filaVacia, columnaVacia, nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
         actualizarPosicionVacia(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
         //tengo que guardar el ultimo movimiento
+
         actualizarUltimoMovimiento(direccion);
         actualizarContador();
     }
@@ -164,6 +166,7 @@ function intercambiarPosicionesDOM(idPieza1, idPieza2){
 
 //debo de actualizar los movimientos en el DOM
 function actualizarUltimoMovimiento(direccion){
+    if (!juegoIniciado) return; 
     var ultimoMovimiento = document.getElementById("flecha");
     switch(direccion){
         case codigosDireccion.ARRIBA:
@@ -182,7 +185,9 @@ function actualizarUltimoMovimiento(direccion){
 }
 
 function actualizarContador() {
+    if (!juegoIniciado) return; 
     contadorMovimientos++;
+    document.getElementById("contador").textContent = contadorMovimientos;
     var contadorElemento = document.getElementById("contador");
     contadorElemento.textContent = contadorMovimientos;
 }
@@ -190,6 +195,7 @@ function actualizarContador() {
 //poder mezclar todas las piezas
 function mezclarPiezas(veces){
     if(veces <= 0){
+        juegoIniciado = true;
         alert("Se han mezclado las piezas correctamente");
         return;
     }
@@ -227,7 +233,7 @@ function iniciar(){
     contadorMovimientos = 0;
     document.getElementById("contador").textContent = contadorMovimientos;
     //mezclar las piezas
-    mezclarPiezas(30);
+    mezclarPiezas(40);
     capturarTeclas();
     //mezclarPiezas
 }
