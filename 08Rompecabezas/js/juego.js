@@ -127,7 +127,7 @@ function moverEnDireccion(direccion){
         intercambiarPosiciones(filaVacia, columnaVacia, nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
         actualizarPosicionVacia(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
         //tengo que guardar el ultimo movimiento
-        agregarUltimoMovimiento(direccion);
+        actualizarUltimoMovimiento(direccion);
     }
 
 }
@@ -139,11 +139,11 @@ function intercambiarPosiciones(fila1, columna1, fila2, columa2){
     //intercambio ya debe de ser por parte de los frames y el html
     intercambiarPosicionesRompe(fila1, columna1, fila2, columa2);
     //para el html
-    intercambiarPoscionesDOM('pieza'+pieza1, 'pieza'+pieza2);
+    intercambiarPosicionesDOM('pieza'+pieza1, 'pieza'+pieza2);
     
 }
 
-function intercambiarPoscionesDOM(idPieza1, idPieza2){
+function intercambiarPosicionesDOM(idPieza1, idPieza2){
     var pieza1 = document.getElementById(idPieza1);
     var pieza2 = document.getElementById(idPieza2);
 
