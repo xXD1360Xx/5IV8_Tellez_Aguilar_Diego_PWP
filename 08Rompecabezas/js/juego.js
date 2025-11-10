@@ -1,3 +1,5 @@
+//Nueva función
+var contadorMovimientos = 0;
 
 var instrucciones = [
     "Utiliza las flechas de navegación para mover las piezas, ",
@@ -128,6 +130,7 @@ function moverEnDireccion(direccion){
         actualizarPosicionVacia(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
         //tengo que guardar el ultimo movimiento
         actualizarUltimoMovimiento(direccion);
+        actualizarContador();
     }
 
 }
@@ -178,6 +181,12 @@ function actualizarUltimoMovimiento(direccion){
     }
 }
 
+function actualizarContador() {
+    contadorMovimientos++;
+    var contadorElemento = document.getElementById("contador");
+    contadorElemento.textContent = contadorMovimientos;
+}
+
 //poder mezclar todas las piezas
 function mezclarPiezas(veces){
     if(veces <= 0){
@@ -215,6 +224,8 @@ function capturarTeclas(){
 }
 
 function iniciar(){
+    contadorMovimientos = 0;
+    document.getElementById("contador").textContent = contadorMovimientos;
     //mezclar las piezas
     mezclarPiezas(30);
     capturarTeclas();

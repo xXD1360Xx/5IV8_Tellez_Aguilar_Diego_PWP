@@ -10,10 +10,13 @@ body {
 
 #bodyBMO{
     background-image: url(../images/adventure.jpg);
+    
 }
 
 #bodyPokemon{
-    background-image: url(../images/pokemon.jpg);
+    background-image: url(../images/pokemon.png);
+    background-position: center center;
+
 }
 
 ul {
