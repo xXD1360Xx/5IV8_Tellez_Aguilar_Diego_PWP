@@ -71,7 +71,7 @@ function mostrarCartelGanador(){
     poscion[][] = arreglo[][]
 */
 
-function intercambiarPosicionesRompe(filaPos1, columnaPos1, filaPos2, columaPos2){
+function intercambiarPosicionesRompe(filaPos1, columnaPos1, filaPos2, columnaPos2){
     var pos1 = rompe[filaPos1][columnaPos1];
     var pos2 = rompe[filaPos2][columnaPos2];
 
