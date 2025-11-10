@@ -72,12 +72,12 @@ function mostrarCartelGanador(){
 */
 
 function intercambiarPosicionesRompe(filaPos1, columnaPos1, filaPos2, columaPos2){
-    var pos1 = rompe[filaPos1, columnaPos1];
-    var pos2 = rompe[filaPos2, columaPos2];
+    var pos1 = rompe[filaPos1][columnaPos1];
+    var pos2 = rompe[filaPos2][columnaPos2];
 
     //intercambio
-    rompe[filaPos1, columnaPos1] = pos2;
-    rompe[filaPos2, columaPos2] = pos1;
+    rompe[filaPos1][columnaPos1] = pos2;
+    rompe[filaPos2][columnaPos2] = pos1;
 }
 
 //que se encargue de saber donde esta la pieza vacia
@@ -133,8 +133,8 @@ function moverEnDireccion(direccion){
 }
 
 function intercambiarPosiciones(fila1, columna1, fila2, columa2){
-    var pieza1 = rompe[fila1, columna1];
-    var pieza2 = rompe[fila2, columa2];
+    var pieza1 = rompe[fila1][columna1];
+    var pieza2 = rompe[fila2][columna2];
 
     //intercambio ya debe de ser por parte de los frames y el html
     intercambiarPosicionesRompe(fila1, columna1, fila2, columa2);
@@ -144,8 +144,8 @@ function intercambiarPosiciones(fila1, columna1, fila2, columa2){
 }
 
 function intercambiarPosicionesDOM(idPieza1, idPieza2){
-    var pieza1 = document.getElementById(idPieza1);
-    var pieza2 = document.getElementById(idPieza2);
+    var elementoPieza1 = document.getElementById(idPieza1);
+    var elementoPieza2 = document.getElementById(idPieza2);
 
     //vamos a clonarlas
     var padre = elementoPieza1.parentNode;
