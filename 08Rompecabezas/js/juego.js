@@ -79,6 +79,10 @@ function irAlMenu() {
   window.location.href = "./index.html";
 }
 
+function irAlMenuPersonajes() {
+  window.location.href = "../../12Examen/api.html";
+}
+
 
 
 
@@ -489,5 +493,78 @@ window.onload = function() {
   capturarTeclas();
 };
 
-//mandamos traer a la funcion
 mostrarInstrucciones(instrucciones);
+
+// mostrar imagen objetivo 
+window.addEventListener("DOMContentLoaded", () => {
+  const imagenSeleccionada = localStorage.getItem("imagenSeleccionada");
+  const imagenObjetivo = document.getElementById("imagenObjetivo");
+  imagenObjetivo.src = imagenSeleccionada;
+});
+
+// función para dividir la imagen 3x3 y colocarla en los divs menos la 9
+function dividirImagenEnPiezas(imagenSrc, filas = 3, columnas = 3) {
+    const img = new Image();
+    img.crossOrigin = "anonymous"; // evita errores con imágenes externas
+
+    img.onload = function () {
+        const ancho = img.width;
+        const alto = img.height;
+        const piezaAncho = ancho / columnas;
+        const piezaAlto = alto / filas;
+
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+
+        let contador = 1;
+
+        for (let fila = 0; fila < filas; fila++) {
+            for (let col = 0; col < columnas; col++) {
+                const divPieza = document.getElementById(`pieza${contador}`);
+
+                if (contador === filas * columnas) {
+                    if (divPieza) {
+                        divPieza.innerHTML = ""; 
+                        divPieza.classList.add("vacia");
+                    }
+                    contador++;
+                    continue;
+                }
+
+                canvas.width = piezaAncho;
+                canvas.height = piezaAlto;
+
+                // dibujar la parte correspondiente de la imagen
+                ctx.drawImage(
+                    img,
+                    col * piezaAncho, fila * piezaAlto, piezaAncho, piezaAlto,
+                    0, 0, piezaAncho, piezaAlto
+                );
+
+                const dataUrl = canvas.toDataURL();
+
+                // colocar la imagen recortada dentro del div
+                if (divPieza) {
+                    let imgTag = divPieza.querySelector("img");
+                    if (!imgTag) {
+                        imgTag = document.createElement("img");
+                        divPieza.appendChild(imgTag);
+                    }
+                    imgTag.src = dataUrl;
+                }
+
+                contador++;
+            }
+        }
+    };
+
+    img.src = imagenSrc;
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  const imagenSeleccionada = localStorage.getItem("imagenSeleccionada");
+  const imagenObjetivo = document.getElementById("imagenObjetivo");
+  imagenObjetivo.src = imagenSeleccionada;
+  dividirImagenEnPiezas(imagenSeleccionada); 
+});
+

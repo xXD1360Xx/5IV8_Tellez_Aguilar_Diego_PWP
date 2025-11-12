@@ -72,11 +72,16 @@ function mostrarDetalle(personaje) {
     document.getElementById("generoDetalle").textContent = personaje.gender;
     document.getElementById("origenDetalle").textContent = personaje.origin.name;
     document.getElementById("ubicacionDetalle").textContent = personaje.location.name;
+    localStorage.setItem("imagenSeleccionada", personaje.image);
 }
 
 document.getElementById("botonCerrar").onclick = () => {
     document.getElementById("panelDetalle").classList.remove("mostrar");
 };
+
+document.getElementById("botonPuzzle").onclick = () => {
+    window.location.href = "../../08Rompecabezas/rompecabezasRickAndMorty.html";
+}
 
 botonSiguiente.onclick = () => {
     paginaActual++;
@@ -113,3 +118,4 @@ aplicarFiltros.onclick = async () => {
 };
 
 obtenerPaginaDePersonajes(paginaActual);
+

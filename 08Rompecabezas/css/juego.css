@@ -10,18 +10,15 @@ body {
 
 #bodyBMO{
     background-image: url(../images/adventure.jpg);
-    
 }
 
 #bodyPokemon{
     background-image: url(../images/pokemon.png);
     background-position: center center; 
-  background-position: center calc(50% + 90px); /* baja 80px desde el centro */
-  background-repeat: no-repeat;
-
-    
-
+    background-position: center calc(50% + 90px); /* baja 80px desde el centro */
+    background-repeat: no-repeat;
 }
+
 
 ul {
     padding-left: 0;
@@ -456,4 +453,77 @@ li::before {
   color: #333;
   margin-left: 8px;
   vertical-align: middle;
+}
+
+/* 🎨 Tema Rick and Morty */
+#bodyRickAndMorty {
+  background-image: url(../images/RickAndMorty.jpg);
+  color: #00ff99;
+  background-repeat: no-repeat;
+
+}
+
+/* 💥 Tablero con estilo cósmico */
+#bodyRickAndMorty #juego {
+  background: linear-gradient(135deg, #00ff99, #4b0082, #000);
+  box-shadow: 0 0 25px #00ff99;
+  border: 2px solid #00ff99;
+}
+
+/* 💚 Título principal */
+#bodyRickAndMorty .titulo-rompecabezas {
+  color: #00ff99;
+  text-shadow: 0 0 10px #00ff99, 0 0 20px #4b0082;
+}
+
+/* 🌀 Panel superior e inferior */
+#bodyRickAndMorty .panel-superior,
+#bodyRickAndMorty .panel-inferior {
+  background: rgba(20, 0, 40, 0.7);
+  border: 2px solid #4b0082;
+  box-shadow: 0 0 15px #00ff99;
+}
+
+/* 🔷 Cronómetro y contador */
+#bodyRickAndMorty #valor-tiempo {
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+}
+#bodyRickAndMorty #contador-movimientos h2 {
+  color: #00ff99;
+}
+
+/* 🚀 Botones */
+#bodyRickAndMorty .boton-accion,
+#bodyRickAndMorty .botonMezclar {
+  background: linear-gradient(135deg, #00ff99, #4b0082, #000);
+  color: #ffffff;
+  box-shadow: 0 0 15px #00ff99;
+  border: 1px solid #00ff99;
+}
+#bodyRickAndMorty .boton-accion:hover,
+#bodyRickAndMorty .botonMezclar:hover {
+  background: linear-gradient(135deg, #4b0082, #00ff99);
+  transform: scale(1.08);
+}
+
+/* 🌌 Texto general */
+#bodyRickAndMorty h1, 
+#bodyRickAndMorty h2, 
+#bodyRickAndMorty p {
+  color: #cc99ff;
+  text-shadow: 0 0 5px #00ff99;
+}
+
+/* 🧠 Mensaje de victoria */
+#bodyRickAndMorty #mensajeVictoria {
+  color: #00ff99;
+  font-weight: bold;
+  text-shadow: 0 0 20px #00ff99, 0 0 30px #4b0082;
+  animation: brilloRick 1.5s infinite alternate;
+}
+
+@keyframes brilloRick {
+  from { text-shadow: 0 0 10px #00ff99; }
+  to { text-shadow: 0 0 25px #00ffff, 0 0 40px #4b0082; }
 }
