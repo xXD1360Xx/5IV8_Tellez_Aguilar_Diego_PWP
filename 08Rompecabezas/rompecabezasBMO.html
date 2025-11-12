@@ -8,18 +8,17 @@
 </head>
 <body id="bodyBMO">
     <div class="col-40" >
-        <div id="titulo" >
+
             <button id="btnMenu" class="boton-accion" onclick="irAlMenu()">
                 Regresar al menú
             </button>
             
-            <h1 
-                class="titulo-rompecabezas">Rompecabezas
-                <br
-                >♡〜٩( ˃▿˂ )۶〜♡
+            <h1 class="titulo-rompecabezas">
+                Rompecabezas
+                <br>♡〜٩( ˃▿˂ )۶〜♡
             </h1>
             
-            <button class="botonMezclar"onclick="iniciar()">
+            <button class="botonMezclar" onclick="iniciar()">
                 Mezclar de nuevo
             </button>
             
@@ -41,7 +40,7 @@
                 <input type="range" id="dificultad" min="0" max="10" value="5" oninput="actualizarDificultad(this.value)">
                 <span id="valorDificultad">5</span>
             </div>
-            
+
             <div id="configuracionModo">
                 <h2 style="margin-right: 10px;">Modo:</h2>
                 <span class="modo-texto">Experto</span>
@@ -52,27 +51,23 @@
                 <span id="modoTexto" class="modo-texto">Principiante</span>
             </div>
 
-            <div id="ultimo-mov" >
-                <h2>Ultimo Movimiento</h2>
-                <div id="flecha" class="texto-centrado" ></div>
-            </div>
+    </div>
+    <div class="col-60" >
+        <div class="panel-superior">
 
             <div id="contador-movimientos">
-                <h2>Movimientos realizados: <span id="contador">0</span></h2>
+                    <h2>Movimientos realizados: <span id="contador">0</span></h2>
             </div>
 
-            <div id="mensajeExperto" class="mensaje-experto" style="display: none;">
-                🎮
-                <b> 
-                Buena suerte... gamer experto.</b>
+            <div id="cronometro" class="contenedor-cronometro">
+                        <span id="etiqueta-tiempo">Tiempo:</span>
+                        <span id="valor-tiempo">0</span>
+                        <button id="botonPausa" class="botonMezclar" onclick="pausarCronometro()">Pausar</button>
             </div>
 
+        </div> 
 
-            
-        </div>
-    </div>
 
-    <div class="col-60" >
         <div id="juego" >
             <div id="pieza1" class="piezas" >
                 <img src="./images/10.jpg" alt="No se encuentra el recurso">
@@ -99,11 +94,23 @@
                 <img src="./images/80.jpg" alt="No se encuentra el recurso">
             </div>
             <div id="pieza9" class="piezas" >
-
             </div>
         </div>
+
+
+        
+        <div class="panel-inferior">
+                <div id="ultimo-mov" >
+                    <h2 id="tituloUltimoMov" >Ultimo Movimiento</h2>
+                    <div id="flecha" class="texto-centrado" ></div>
+                </div>
+                <div id="mensajeMezclando" class="mensajeMezclando" style="display: none;">
+                    <b>Mezclando piezas...</b>
+                </div>
+        </div>
+
+
     </div>
     <script src="./js/juego.js" ></script>
-    
 </body>
 </html>

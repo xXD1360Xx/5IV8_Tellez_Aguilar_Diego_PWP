@@ -49,7 +49,6 @@ li::before {
 .col-40,
 .col-60 {
     display: table-cell;
-    margin: 0;
     vertical-align: top;
 }
 
@@ -65,10 +64,54 @@ li::before {
     width: 60%;
     max-width: 564px;
     /* background: #E84A5F; */
+        padding-top: 35px; /* funciona con table-cell */
+
+}
+
+.panel-superior {
+  width: 100%;
+  
+  display: flex;
+  justify-content: space-between; /* separa contador y cronómetro */
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 0 20px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+
+
+#contador-movimientos h2 {
+  font-size: 18px;
+  color: #333;
+  margin: 10px 0;
+}
+
+.contenedor-cronometro {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+#etiqueta-tiempo {
+  font-weight: bold;
+}
+
+#valor-tiempo {
+  font-weight: 700;
+  color: #0078ff;
 }
 
 #flecha {
     font-size: 40px;
+}
+
+#tituloUltimoMov {
+  display: none;
 }
 
 .texto-centrado {
@@ -102,6 +145,14 @@ li::before {
     width: 600px;
     height: 600px;
     box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    box-sizing: border-box;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    margin-bottom: 5px;
 }
 
 .piezas {
@@ -115,6 +166,51 @@ li::before {
     height: 100%;
     border: 0.30px solid rgb(97, 204, 209);
 }
+
+.col-40 > div, 
+.col-40 > h1, 
+.col-40 > button {
+  margin-bottom: 32px;
+}
+
+
+.panel-inferior {
+  width: 600px;
+  height: 90px;
+  margin-top: 10px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Centra y da estilo a ambos mensajes */
+#mensajeMezclando, #ultimo-mov {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
+
+/* Ocultos */
+#mensajeMezclando[style*="display: none"],
+#ultimo-mov[style*="display: none"] {
+  opacity: 0;
+}
+
+/* Detalles visuales */
+#mensajeMezclando { font-size: 18px; color: #000; }
+#ultimo-mov h2 { font-size: 18px; color: #333; margin-bottom: 0px; }
+#flecha { font-size: 40px; transition: transform 0.3s ease; }
+
+
 
 
 /*  títulos, las instrucciones y el footer.*/

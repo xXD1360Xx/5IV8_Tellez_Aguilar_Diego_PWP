@@ -1,4 +1,4 @@
-//Nueva función y requerimiento funcinoal Contador de movimientos (RF2 ID del Excel y Jira)
+//Nueva función y requerimiento funcional Contador de movimientos (RF2 ID del Excel y Jira)
 var ultimaDireccion = null;
 var dificultad = 5;
 var mezclaInicialHecha = false;
@@ -9,8 +9,8 @@ function actualizarDificultad(valor) {
 }
 
 function calcularMovimientosPorDificultad() {
-  if (dificultad === 0) return 4;
-  if (dificultad === 1) return 7;
+  if (dificultad === 0) return 6;
+  if (dificultad === 1) return 8;
   return dificultad * 5;
 }
 
@@ -20,13 +20,66 @@ function calcularMovimientosPorDificultad() {
 var contadorMovimientos = 0;
 var juegoIniciado = false;
 var mezclando = false;
+var tiempo = 0;
+var intervaloTiempo = null;
+var pausado = false;
 
+function iniciarCronometro() {
+  detenerCronometro(); // por si hay uno activo
+  tiempo = 0;
+  actualizarTiempoDOM();
+  pausado = false;
+  intervaloTiempo = setInterval(function() {
+    tiempo++;
+    actualizarTiempoDOM();
+  }, 1000);
+}
+
+function pausarCronometro() {
+  const boton = document.getElementById("botonPausa");
+  // permitir reanudar incluso si intervaloTiempo es null (estado pausado)
+  if (!intervaloTiempo && !pausado) return;
+
+  if (pausado) {
+    // reanudar
+    intervaloTiempo = setInterval(function() {
+      tiempo++;
+      actualizarTiempoDOM();
+    }, 1000);
+    if (boton) boton.textContent = "Pausar";
+    pausado = false;
+  } else {
+    // pausar
+    clearInterval(intervaloTiempo);
+    intervaloTiempo = null;
+    if (boton) boton.textContent = "Reanudar";
+    pausado = true;
+  }
+}
+
+function detenerCronometro() {
+  if (intervaloTiempo) {
+    clearInterval(intervaloTiempo);
+  }
+  intervaloTiempo = null;
+  pausado = false;
+}
+
+function actualizarTiempoDOM() {
+  const elemento = document.getElementById("valor-tiempo");
+  if (!elemento) return;
+  const minutos = Math.floor(tiempo / 60);
+  const segundos = tiempo % 60;
+  elemento.textContent = `${minutos}:${segundos < 10 ? "0" + segundos : segundos}`;
+}
 
 
 //NuFueva función Botón de regresar a menú (NuF2)
 function irAlMenu() {
   window.location.href = "./index.html";
 }
+
+
 
 
 
@@ -93,12 +146,26 @@ function checarSiGano(){
 }
 
 //mostrar en html si se gano
-function mostrarCartelGanador(){
-    if(checarSiGano()){
-        alert("Felicidades, ganaste el juego");
+function mostrarCartelGanador() {
+  if (checarSiGano()) {
+    detenerCronometro(); 
+    const mensaje = document.getElementById("mensajeMezclando");
+    const ultimoMov = document.getElementById("ultimo-mov");
+
+    if (ultimoMov) ultimoMov.style.display = "none";
+
+    if (mensaje) {
+      mensaje.style.display = "flex";
+      mensaje.innerHTML = "<b>🎉 ¡Felicidades, ganaste el juego! 🎉</b>";
+      mensaje.style.color = "#e63946"; // rojo del título
+      mensaje.style.fontSize = "20px";
     }
-    return false;
+
+    return true;
+  }
+  return false;
 }
+
 
 /*
     necesitamos una funcion que se encargue de poder intercambiar las posiciones de la pieza vacia vs cualquiera, para esto tenemos que hacer el uso de :
@@ -164,6 +231,7 @@ function moverEnDireccion(direccion){
         actualizarPosicionVacia(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
         //tengo que guardar el ultimo movimiento
 
+        ultimaDireccion = direccion;
         if (!mezclando) {
             actualizarUltimoMovimiento(direccion);
             actualizarContador();
@@ -201,20 +269,29 @@ function intercambiarPosicionesDOM(idPieza1, idPieza2){
 
 //debo de actualizar los movimientos en el DOM
 function actualizarUltimoMovimiento(direccion){
-    if (!juegoIniciado || mezclando) return;
-    if (!juegoIniciado) return; 
-    var ultimoMovimiento = document.getElementById("flecha");
+  const titulo = document.getElementById("tituloUltimoMov");
+  const ultimoMovimiento = document.getElementById("flecha");
+  if (!juegoIniciado || mezclando) return;
+  if (!juegoIniciado) return; 
+
+  titulo.style.display = "block";
+  ultimoMovimiento.style.opacity = "1";
+
     switch(direccion){
         case codigosDireccion.ARRIBA:
+            titulo.style.display = "block";
             ultimoMovimiento.textContent = "↑";
             break;
         case codigosDireccion.ABAJO:
+            titulo.style.display = "block";
             ultimoMovimiento.textContent = "↓";
             break;
         case codigosDireccion.DERECHA:
+            titulo.style.display = "block";
             ultimoMovimiento.textContent = "→";
             break;
         case codigosDireccion.IZQUIERDA:
+            titulo.style.display = "block";
             ultimoMovimiento.textContent = "←";
             break;
     }
@@ -222,33 +299,80 @@ function actualizarUltimoMovimiento(direccion){
 
 function actualizarContador() {
     if (!juegoIniciado) return; 
+
+    if (contadorMovimientos === 0) {
+      const mensaje = document.getElementById("mensajeMezclando");
+      mensaje.style.display = "none";
+    }
+
     contadorMovimientos++;
     document.getElementById("contador").textContent = contadorMovimientos;
     var contadorElemento = document.getElementById("contador");
     contadorElemento.textContent = contadorMovimientos;
 }
 
+
+function prepararYMezclar() {
+  reiniciarRompecabezas();
+  const mezclas = calcularMovimientosPorDificultad();
+  const switchExperto = document.getElementById("modoExperto");
+  const esPrincipiante = switchExperto.checked;
+
+  if (esPrincipiante) {
+    mezclarPiezas(mezclas);
+  } else {
+    mezclarInstantaneo();
+  }
+}
+
+
 //poder mezclar todas las piezas
+
+// devuelve true si dirA es opuesta a dirB
+function esDireccionOpuesta(dirA, dirB) {
+  return (dirA === codigosDireccion.ARRIBA && dirB === codigosDireccion.ABAJO) ||
+         (dirA === codigosDireccion.ABAJO && dirB === codigosDireccion.ARRIBA) ||
+         (dirA === codigosDireccion.IZQUIERDA && dirB === codigosDireccion.DERECHA) ||
+         (dirA === codigosDireccion.DERECHA && dirB === codigosDireccion.IZQUIERDA);
+}
+
+
 function mezclarPiezas(veces){
     mezclando = true;
+    document.getElementById("tituloUltimoMov").style.display = "none";
+    document.getElementById("flecha").style.opacity = "0";
+    const mensaje = document.getElementById("mensajeMezclando");
+    const switchExperto = document.getElementById("modoExperto");
+    const esPrincipiante = switchExperto.checked;
+
+    if (mensaje) {
+      mensaje.style.display = "block";
+      mensaje.innerHTML = "Mezclando piezas...";
+    }
+
     if(veces <= 0){
+      if (esPrincipiante) {
+        mensaje.innerHTML = "Piezas mezcladas correctamente <br> ¡Diviértete! Modo <b>Principiante</b> activado.";
+      } else {
+        mensaje.innerHTML = "Piezas mezcladas correctamente <br> Buena suerte... jugador <b>experto</b>.";
+      }
         mezclando = false;
         juegoIniciado = true;
         contadorMovimientos = 0;
         document.getElementById("contador").textContent = contadorMovimientos;
-        document.getElementById("flecha").textContent = ""; 
-        alert("Se han mezclado las piezas correctamente");
+        iniciarCronometro();
         return;
     }
-
+     
     var direcciones = [codigosDireccion.ABAJO, codigosDireccion.ARRIBA, codigosDireccion.DERECHA, codigosDireccion.IZQUIERDA];
     var direccion;
     //definitemos la direccion a mover hasta que la ultima direccion NO sea su opuesta 
-        do {
-            direccion = direcciones[Math.floor(Math.random() * direcciones.length)];
-        } while (ultimaDireccion && esDireccionOpuesta(direccion, ultimaDireccion));
-
+    do {
+      direccion = direcciones[Math.floor(Math.random() * direcciones.length)];
+    } while (ultimaDireccion && esDireccionOpuesta(direccion, ultimaDireccion));
     moverEnDireccion(direccion);
+        ultimaDireccion = direccion;
+
 
     setTimeout(function(){
         mezclarPiezas(veces - 1);
@@ -296,8 +420,10 @@ function reiniciarRompecabezas() {
 }
 
 function mezclarInstantaneo() {
-    mezclando = true;
+  mezclando = true;
   let mezclas = calcularMovimientosPorDificultad();
+  const mensaje = document.getElementById("mensajeMezclando");
+
 
   for (let i = 0; i < mezclas; i++) {
     let direcciones = [
@@ -313,82 +439,54 @@ function mezclarInstantaneo() {
     moverEnDireccion(direccion);
   }
 
-    mezclando = false;
+  mezclando = false;
+  mensaje.innerHTML = "Piezas mezcladas correctamente<br>Buena suerte... jugador <b>experto</b>.";
   juegoIniciado = true;
   contadorMovimientos = 0;
   document.getElementById("contador").textContent = contadorMovimientos
-  document.getElementById("flecha").textContent = ""; ;
+  document.getElementById("flecha").textContent = ""; 
+  iniciarCronometro();
 }
+
 
 function cambiarModoExperto(checked) {
   const tablero = document.getElementById("juego");
-  const mensaje = document.getElementById("mensajeExperto");
-  const textoModo = document.getElementById("modoTexto");
+  const mensaje = document.getElementById("mensajeMezclando");
 
   if (checked) {
-    // 🟢 Modo PRINCIPIANTE
     tablero.style.background = "linear-gradient(135deg, #4facfe, #00f2fe)";
-    mensaje.style.display = "none";
-    textoModo.textContent = "Principiante";
-
-    piezas.forEach(pieza => {
-      pieza.style.transition = "opacity 0.3s ease";
-      pieza.style.opacity = "1";
-      pieza.style.visibility = "visible";
-    });
   } else {
-    // 🔵 Modo EXPERTO
-    tablero.style.background = "linear-gradient(135deg, #4facfe, #00f2fe)";
-    mensaje.style.display = "block";
-    textoModo.textContent = "Principiante"; // siempre dice "Principiante" a la derecha
-
-    // Ocultamos solo visualmente, sin volverlas invisibles en DOM
-    piezas.forEach(pieza => {
-      pieza.style.transition = "none"; // evita parpadeos
-      pieza.style.opacity = "1"; // mantenlas visibles, aunque no haya fondo guía
-      pieza.style.visibility = "visible";
-    });
-
-    // Mezclar sin animación visible
-    reiniciarRompecabezas();
-    mezclarInstantaneo();
+    tablero.style.background = "linear-gradient(135deg, #00c6ff, #0072ff)";
   }
+    mensaje.style.display = "block";
+    mensaje.innerHTML = "<b>Mezclando piezas...</b>";
+
+ prepararYMezclar()
+
 }
 
 
-
 function iniciar(){
+  document.getElementById("tituloUltimoMov").style.display = "none";
+document.getElementById("flecha").style.opacity = "0";
   contadorMovimientos = 0;
   document.getElementById("contador").textContent = contadorMovimientos;
+  const mensaje = document.getElementById("mensajeMezclando");
 
-  const switchExperto = document.getElementById("modoExperto");
-  const esPrincipiante = switchExperto.checked;
-
-  if (mezclaInicialHecha) {
-    reiniciarRompecabezas();
-    mezclas = calcularMovimientosPorDificultad();
-  } else {
-    mezclas = 25;
-    mezclaInicialHecha = true;
+  if (mensaje) {
+    mensaje.style.display = "block";
+    mensaje.innerHTML = "Mezclando piezas...";
   }
 
-  // 🔹 Si está en modo experto → desordenar instantáneamente
-  if (!esPrincipiante) {
-    mezclarInstantaneo();
-    return; // salimos para que no ejecute la mezcla animada
-  }
-
-  // 🔹 Si está en modo principiante → mezclar con animación
-  mezclarPiezas(mezclas);
-  capturarTeclas();
+  prepararYMezclar();
 }
 
 
 window.onload = function() {
   piezas = Array.from(document.querySelectorAll(".piezas"));
   const switchExperto = document.getElementById("modoExperto");
-  iniciar(); 
   cambiarModoExperto(switchExperto.checked); // sincroniza con el estado visual del switch
+  capturarTeclas();
 };
 
 //mandamos traer a la funcion
