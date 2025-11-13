@@ -119,3 +119,6 @@ aplicarFiltros.onclick = async () => {
 
 obtenerPaginaDePersonajes(paginaActual);
 
+function irAlIndex() {
+  window.location.href = "../../index.html";
+}

@@ -31,8 +31,31 @@ header {
     text-align: center;
 }
 
+
+
+
+
+
+
+
+
+/* 🔹 Barra superior de selección */
+.barraSeleccion {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centra todos los elementos */
+    gap: 160px; /* ajusta la separación entre los elementos */
+    padding: 20px 15px;
+    border-radius: 8px;
+    margin: 25px auto 10px auto;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* Botones */
 .btn,
-.btn-filtros {
+.btn-filtros,
+.btn-Regresar {
     background-color: #00ff9f;
     border: none;
     color: #121212;
@@ -46,15 +69,22 @@ header {
 }
 
 .btn:hover,
-.btn-filtros:hover {
+.btn-filtros:hover,
+.btn-Regresar:hover {
     background-color: #00d47d;
     transform: scale(1.05);
 }
 
-.btn-filtros {
-    position: absolute;
-    right: 0;
+/* Texto centrado correctamente */
+.barraSeleccion h3 {
+    margin: 0;
+    color: #00ff9f;
+    font-weight: bold;
+    text-align: center;
 }
+
+
+
 
 .rejilla-personajes {
     display: grid;
