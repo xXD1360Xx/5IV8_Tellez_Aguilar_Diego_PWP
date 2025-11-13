@@ -76,7 +76,7 @@ function actualizarTiempoDOM() {
 
 //NuFueva función Botón de regresar a menú (NuF2)
 function irAlMenu() {
-  window.location.href = "./index.html";
+  window.location.href = "../../08Rompecabezas/index.html";
 }
 
 function irAlMenuPersonajes() {

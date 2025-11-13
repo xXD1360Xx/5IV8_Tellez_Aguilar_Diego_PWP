@@ -120,14 +120,6 @@ aplicarFiltros.onclick = async () => {
 
 obtenerPaginaDePersonajes(paginaActual);
 
-document.addEventListener("DOMContentLoaded", () => {
-  const botonRegresar = document.getElementById("botonRegresar");
-
-  botonRegresar.addEventListener("click", () => {
-    // Aquí va lo que quieras que haga el botón
-    console.log("Botón regresar presionado");
-
-
-    window.location.href = "../../index.html";
-  });
-});
+function irAlIndex() {
+  window.location.href = "../../index.html";
+}
