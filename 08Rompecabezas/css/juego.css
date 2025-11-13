@@ -109,6 +109,7 @@ li::before {
 
 #tituloUltimoMov {
   display: none;
+  color: #00ff9f;
 }
 
 .texto-centrado {
@@ -204,7 +205,7 @@ li::before {
 
 /* Detalles visuales */
 #mensajeMezclando { font-size: 18px; color: #00ff9f; }
-#ultimo-mov h2 { font-size: 18px; color: #333; margin-bottom: 0px; }
+#ultimo-mov h2 { font-size: 18px; color: #00ff9f; margin-bottom: 0px; }
 #flecha { font-size: 40px; transition: transform 0.3s ease; }
 
 
@@ -240,7 +241,7 @@ li::before {
     text-align: center;
     font-size: 16px;
     font-family: 'Courier New', Courier, monospace;
-    color: #000;
+    color: #00ff9f;
 }
 
 #footer p {
@@ -804,4 +805,9 @@ header {
 @keyframes brilloRick {
   from { text-shadow: 0 0 10px #00ff99; }
   to { text-shadow: 0 0 25px #00ffff, 0 0 40px #4b0082; }
+}
+
+#bodyRickAndMorty #tituloUltimoMov {
+  color: #00ff9f !important;
+  text-shadow: 0 0 8px #00ff9f;
 }
