@@ -106,6 +106,7 @@ const filtroProtagonista = document.getElementById("filtroProtagonista");
 botonFiltros.onclick = () => panelFiltros.classList.add("mostrar");
 cerrarFiltros.onclick = () => panelFiltros.classList.remove("mostrar");
 
+
 aplicarFiltros.onclick = async () => {
     panelFiltros.classList.remove("mostrar");
 
@@ -119,3 +120,14 @@ aplicarFiltros.onclick = async () => {
 
 obtenerPaginaDePersonajes(paginaActual);
 
+document.addEventListener("DOMContentLoaded", () => {
+  const botonRegresar = document.getElementById("botonRegresar");
+
+  botonRegresar.addEventListener("click", () => {
+    // Aquí va lo que quieras que haga el botón
+    console.log("Botón regresar presionado");
+
+
+    window.location.href = "../../index.html";
+  });
+});
